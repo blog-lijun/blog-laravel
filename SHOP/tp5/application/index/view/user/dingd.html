@@ -1,0 +1,454 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-side">
+				<div class="side-neck" style="margin-top: 20px;">
+						<i></i>
+					</div>
+					<div class="ms-side" style="margin-top: 20px;" >
+						<article class="side-menu side-menu-off">
+							<dl class="side-menu-tree" style="padding-left: 50px;">
+								<dt><img src="/img/左侧/我的购物车.png"  style="margin-right: 10px;margin-left: -20px;"/>我的购物车</dt>
+								<dt><img src="/img/左侧/file.png"  style="margin-right: 10px;margin-left: -20px;"/>订单管理</dt>
+								<dd>
+									<a href="{:url('dingd?zhuangtai=0')}">我的订单</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('cang')}">我的收藏</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('pingj?ping=0')}">我的评价</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('zuj')}" >我的足迹</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/我的买啦.png"  style="margin-right: 10px;margin-left: -20px;"/>我的买啦</dt>
+								
+								<dd>
+									<a href="{:url('qianb')}">我的钱包</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('tix')}">我的银行卡</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/v-card-3.png"  style="margin-right: 10px;margin-left: -20px;"/>售后服务</dt>
+								<dd>
+									<a href="{:url('tuih?sousuo=0')}">退换货</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('yij')}">意见/投诉</a>
+
+								</dd>
+							</dl>
+
+
+							<a ison="on" class="switch-side-menu icon-up-side"><i></i></a>
+						</article>
+					</div>
+				</div>
+				<div class="cont-main">
+					<div class="main-wrap mt15" style="border: 0px;">
+						      <ul class="sui-nav nav-tabs" style="margin-top:0px;width: 1000px;margin-left: 30px;">
+								  <li   style="margin-left: -5px;"><a href="{:url('dingd?zhuangtai=0')}" data-toggle="tab">所有订单<span style="margin-left: 20px;color: #ccc;">|</span></a></li>
+								  <li class="active"><a style="cursor:pointer;" href="{:url('/index/user/dingd?zhuangtai=待付款')}" data-toggle="tab">待付款<span style="margin-left: 20px;color: #ccc;">|</span></a></li>
+								   <li class="active"><a style="cursor:pointer;" href="{:url('/index/user/dingd?zhuangtai=待发货')}" data-toggle="tab">待发货<span style="margin-left: 20px;color: #ccc;">|</span></a></li>
+								    <li class="active"><a style="cursor:pointer;" href="{:url('/index/user/dingd?zhuangtai=确认收货')}" data-toggle="tab">确认收货<span style="margin-left: 20px;color: #ccc;">|</span></a></li>
+								    <li class="active"><a style="cursor:pointer;" href="{:url('/index/user/dingd?zhuangtai=待评价')}" data-toggle="tab">待评价<span style="margin-left: 20px;color: #ccc;">|</span></a></li>
+								</ul>
+							<div class="profile-info">
+								<div class="control-group clearfix " style="width: 1020px;margin-bottom: 0px;">
+									<div style="margin-top: -60px";>
+                                        <div style="float:right;display: inline;margin-left:60px;display: inline-block;height: 25px;margin-right: -5px;padding-top: 10px;width:65px;"> 
+									    <img src="/img/trash-拷贝.png"  style="height: 10px;width: 10px;" />
+									           <font style=""><a href="{:url('/index/user/dingd?zhuangtai=已评价')}">订单回收站</a></font>
+                                        </div> 
+									 </div>
+									
+								</div>
+							</div>
+							<form action="{:url('/index/user/dingd?zhuangtai=-1')}" method="post">
+							<div style="margin-left: 30px;height: 25px;" >
+								<input  type="text" name="sousuo"  placeholder="输入商品标题或者订单号进行搜索 " style="width: 200px;height: 25px;font-size: 12px;" />
+								<input type="submit" value="订单搜索" style="height: 100%;margin-left: -5px;border: 1px #ccc solid;font-size: 12px;color:#353535;background-color: #f2f2f2;width: 100px;" />
+							   
+							</div>
+							</form>
+
+							<div class="tab-content" style="width: 1000px;margin-top: 10px;border:1px #fff solid; border-top:transparent;margin-left: 30px;">
+								  <div id="index" class="tab-pane " style="padding: 40px 30px;">
+								  </div>
+								 <div id="profile" class="tab-pane active" style="padding: 00px 00px;">
+								 <div style="width: 100%;height: 50px;border: 1px #ccc solid;line-height: 50px;background-color: #fdfdfd">
+								 	<span style="color: #858585;margin-left: 160px;">宝贝</span>
+								 	<span style="color: #858585;margin-left: 190px;">单价(元)</span>
+								 	<span style="color: #858585;margin-left: 29px;">数量</span>
+								 	<span style="color: #858585;margin-left: 45px;">商品操作</span>
+								 	<span style="color: #858585;margin-left: 100px;">实付款(元)</span>
+								 	<span style="color: #858585;margin-left: 45px;">交易状态</span>
+								 	<span style="color: #858585;margin-left: 45px;">交易操作</span>
+								 </div>
+								 <div style="width: 100%;height: 0px;padding: 10px;">
+								 
+								    <div style="float: right;margin-right: 5px;">
+								    	<input type="button"  style="display: inline-block;background-color: #fff; background-image: url(/img/我的订单/组-39.png);width: 20px;height: 20px;border: 0px;background-repeat: no-repeat;" />
+								    	<input type="button" style="border:0px;display: inline-block;background-color: #fff;background-image: url(/img/我的订单/组-40.png);background-repeat: no-repeat;width: 58px;height: 20px;" />
+								    </div>
+								 </div>
+
+						    {volist name='dingdan' id='data'}
+								 <div style="margin-top: 30px;width: 100%;height: 250px;border: 1px #addff8 solid;">
+								 <div style="width: 100%;height: 50px;background-color: #eaf9ff;vertical-align: middle;font-size: 12px;">
+								<input type="checkbox" style="line-height: 50px;margin-left: 20px;"/>
+								<span style="line-height: 50px;">{$data.create_time}</span>
+								<span style="line-height: 50px;margin-left: 20px;">订单号：{$data.bianhao}</span>
+								<span style="line-height: 50px;margin-left: 100px;">{$data.maijia}</span>
+								<img src="/img/speech-bubble-3-拷贝.png" style="margin-left: 100px;"/> <span>和我联系</span>
+								 </div>	
+								 <div style="float: left;width: 65%;height: 93px;">
+								 	<div style="width: 100%;">
+								 	<img src="/upload/{$data.tupian}" style="height: 100px;float: left;margin-left:0px" />
+								 	<dl style="width: 220px;float: left;margin-left: 20px;margin-top: 20px;">{$data.username}</dl>
+								    <del style="display: inline-block;margin-left: -13px;margin-top: 20px;color: #858585;">{$data.jiage}</del>
+								    <dl style="float: left;margin-left: 15px;margin-top: 40px;">{$data.jiage}</dl>
+								    <span style="margin-left: 40px;">{$data.shuliang}</span>
+								    {if empty($data.yuanyin)}
+								    <dl style="float: right;margin-right: 15px;margin-top: 20px;"><a style="cursor:pointer;" data="{$data.did}">退款/退货</a>
+								    <a style="display:none">申请中</a>
+								    {else /}
+								   <dl style="float: right;margin-right: 15px;margin-top: 20px;"><a>申请中</a>
+								    {/if}
+								    <a cuowu="{$data.did}" style="display:none">申请退款/退货失败</a>
+								    <input data="{$data.did}" type="text" color="#ccc" style="width:100px;display:none" placeholder="退款原因"><a datavalue="{$data.did}" style="display:none;" href="">提交</a>
+								    <br />
+								    {if $data.tousu}
+								    <a yitou="{$data.did}">已投诉</a>
+								    {else /}
+								    <a tousu="{$data.did}" style="cursor:pointer;">投诉卖家</a><a style="display:none" yitou="{$data.did}">已投诉</a>
+								    	<textarea tousuneirong="{$data.did}"  style="width:125px;height:105px;display:none" placeholder="请输入投诉原因" type="text" /></textarea><a href="" tijiao="{$data.did}" style="display:none">提交</a>
+								    {/if}
+								    <br>
+								    {if $data.yunxian}
+								    <a tuiyun="{$data.did}">退运保险</a><a yitui="{$data.did}" style="display:none">已退运险</a>
+								    {else /}
+								    <a>已退运险</a>
+								    {/if}
+								    </dl>
+								    </div>   
+								 </div>	
+
+								 <script>
+								 $(function(){
+								 	$("a[tuiyun='{$data.did}']").click(function(){
+								 			$.ajax({
+												url:'/index/user/tuiyun?did={$data.did}',
+												method:'post',
+												
+												dataType:'json',
+												success:
+												function(data){
+												if (data) {
+													$("a[tuiyun='{$data.did}']").css('display','none');
+								 					
+								 					$("a[yitui='{$data.did}']").css('display','block');
+
+												}
+												}
+											});
+
+
+								 	})
+
+								 })
+
+								 </script>
+
+								
+
+								 <script>
+								 $(function(){
+								 	$("a[data='{$data.did}']").click(function(){
+								 		
+								 		$("a[data='{$data.did}']").css('display','none');
+								 		$("input[data='{$data.did}']").css('display','block');
+								 		$("a[datavalue='{$data.did}']").css('display','block');
+								 	})
+								 	$("a[datavalue='{$data.did}']").click(function(){
+								 		var sss = $("input[data='{$data.did}']").val();
+												
+												$.ajax({
+														url:'/index/user/tuidingdan?did={$data.did}',
+														method:'post',
+														data:{yuanyin:sss},
+														dataType:'json',
+														success:
+														function(data){
+															if (data) {
+																$("input[data='{$data.did}']").css('display','none');
+								 								$("a[datavalue='{$data.did}']").css('display','none');
+								 								$("a[value='{$data.did}']").css('display','block');
+
+															} else {
+																$("input[data='{$data.did}']").css('display','none');
+								 								$("a[datavalue='{$data.did}']").css('display','none');
+								 								$("a[cuowu='{$data.did}']").css('display','block');
+															}
+														}
+													});
+								 	})
+								 })
+
+								 $(function(){
+								 $("a[tousu='{$data.did}']").click(function(){
+								 	$("a[tousu='{$data.did}']").css('display','none');
+								 	$("textarea[tousuneirong='{$data.did}']").css('display','block');
+								 	$("a[tijiao='{$data.did}']").css('display','block');
+								 	
+								 	$("a[tijiao='{$data.did}']").click(function(){
+								 		var neirong = $("textarea[tousuneirong='{$data.did}']").val();
+								 		$.ajax({
+												url:'/index/user/tousu?did={$data.did}',
+												method:'post',
+												data:{'neirong':neirong},
+												dataType:'json',
+												success:
+												function(data){
+												if (data) {
+													$("a[tousu='{$data.did}']").css('display','none');
+								 					
+								 					$("a[yitou='{$data.did}']").css('display','block');
+
+												}
+												}
+											});
+											
+
+
+
+								 	})
+								 	
+								 })
+								 })
+
+
+								 </script>
+								 
+								 <div style="float: left;border-left: 1px #addff8 solid;width: 11%;height:200px;text-align: center;">
+								 	
+								 	<span style="font-weight: bold;margin-top: 30px;display: block;">{$data.jiage}</span>
+								 	<dl>(含运费:00)</dl>
+								 	
+								 </div>
+								 <div style="float: left;border-left: 1px #addff8 solid;width: 11%;height:200px;text-align: center ;">
+								 	<dl style="margin-top: 30px;">{$data.zhuangtai}</dl>
+								 	<dl>订单详情</dl>
+								 	<dl wuliu="{$data.did}">查看物流</dl>
+								 	<dl jvtiwuliu="{$data.did}" style="display:none;width:100px;height:110px;background:#eee;margin-left:6px"><b>{$data.wuliu}</b></dl>
+								 </div>
+
+								 <script>
+								 	$(function(){
+								 		$("dl[wuliu='{$data.did}']").mousemove(function(){
+								 			$("dl[jvtiwuliu='{$data.did}']").css('display','block');
+								 		})
+								 		$("dl[wuliu='{$data.did}']").mouseout(function(){
+								 			$("dl[jvtiwuliu='{$data.did}']").css('display','none');
+								 		})
+
+
+								 	})
+
+								 </script>
+
+								 <div style="float: left;border-left: 1px #addff8 solid;width: 12%;height:200px;text-align: center ;">
+								 
+								 	{if $data.zhuangtai == '确认收货'}
+								 	<button shouhuo="{$data.did}" style="color: fff;background-color: #65b5ff;border: 0px;padding: 4px;margin-top: 5px;">确认收货</button>
+								 	<input zhifu="{$data.did}"  style="width:125px;display:none" placeholder="请输入支付密码" type="password" /><a href="" jueren="{$data.did}" style="display:none">确认</a>
+								 	{elseif $data.zhuangtai == '待评价'}
+								 	<button pingjia="{$data.did}" style="color: fff;background-color: #65b5ff;border: 0px;padding: 4px;margin-top: 5px;">评价</button>
+								 	<textarea pingjianeirong="{$data.did}"  style="width:125px;height:150px;display:none" placeholder="请输入评价内容" type="text" /></textarea>
+								 	<div haoping="{$data.did}" style="font-size:10px;display:none">
+								 	<span  hao2="{$data.did}">
+								 	<input id="q1{$data.did}" type="radio" name="haoping" value=2 /><label for="q1{$data.did}">好评</label>
+								 	</span>
+								 	<span  hao1="{$data.did}">
+								 	<input id="q2{$data.did}" type="radio" name="haoping" value=1 /><label for="q2{$data.did}">中评</label>
+								 	</span>
+								 	<span  hao0="{$data.did}">
+								 	<input id="q3{$data.did}" type="radio" name="haoping" value=0 /><label for="q3{$data.did}">差评</label>
+								 	</span>
+								 	</div>
+								 	<a href="" pingjiaqueren="{$data.did}" style="display:none">确认</a>
+								 	{/if}
+								 </div>
+								 </div>
+
+							<script>
+								$(function(){
+									$("button[pingjia='{$data.did}']").click(function(){
+										$("button[pingjia='{$data.did}']").css('display','none');
+										$("textarea[pingjianeirong='{$data.did}']").css('display','block');
+										$("a[pingjiaqueren='{$data.did}']").css('display','block');
+										$("div[haoping='{$data.did}']").css('display','block');
+
+
+									})	
+									var value = 4;
+										$("span[hao0='{$data.did}']").click(function(){
+											
+											value = 0;
+										})
+
+										$("span[hao1='{$data.did}']").click(function(){
+											value = 1;
+										})
+
+										$("span[hao2='{$data.did}']").click(function(){
+											value = 2;
+										})
+										
+
+									$("a[pingjiaqueren='{$data.did}']").click(function(){
+										
+										var sss = $("textarea[pingjianeirong='{$data.did}']").val();
+												$.ajax({
+														url:'/index/user/pingjia?did={$data.did}',
+														method:'post',
+														data:{pingjianeirong:sss,value:value},
+														dataType:'json',
+														success:
+														function(data){
+															
+															
+														}
+													});
+													
+
+
+									})
+
+
+
+								})
+
+
+							</script>
+							
+							<script>
+								$(function(){
+									$("button[shouhuo='{$data.did}']").click(function(){
+										$("button[shouhuo='{$data.did}']").css('display','none');
+										$("input[zhifu='{$data.did}']").css('display','block');
+										$("a[jueren='{$data.did}']").css('display','block');
+
+									})
+								$(function(){
+									$("a[jueren='{$data.did}']").click(function(){
+										var sss = $("input[zhifu='{$data.did}']").val();
+												$.ajax({
+														url:'/index/user/zhifumima?did={$data.did}',
+														method:'post',
+														data:{zhifumima:sss},
+														dataType:'json',
+														success:
+														function(data){
+										
+															
+														}
+													});
+
+
+									})
+
+								})
+
+
+
+
+								})
+
+							</script>	 
+							{/volist}
+
+								 
+								
+								 <div style="width: 100%;height: 0px;padding: 10px;">
+								 	
+								 		
+								 </div>		
+								 </div>
+						    </div>		 
+	  	
+								  	
+					</div>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<div class="clear"></div>
+		<div class="ng-footer">
+
+			<textarea class="footer-dom" id="footer-dom-02">
+			</textarea>
+			<div class="ng-fix-bar"></div>
+		</div>
+		<style type="text/css">
+			.fenye{
+				    border: 1px #ccc solid;
+				     padding: 3px; 
+				    width: 20px;
+			}
+			.ng-footer {
+				height:514px;
+				margin-top: 0;
+			}
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript" src="js/safe/ms_common.min.js"></script>
+	</body>
+
+</html>

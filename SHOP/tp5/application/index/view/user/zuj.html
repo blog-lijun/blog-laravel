@@ -1,0 +1,84 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-main">
+					<div class="main-wrap mt15" style="border: 0px;">
+						<!--<h3> <strong>我的会员等级</strong> </h3>-->
+						<div class="server-wrapper">
+							<div class="server-tab" style="margin-top: 26px;">
+								<div style=" float: left;vertical-align: bottom;text-align: center;margin-left:-142px">
+									<div style="width: 1120px;padding: 10px;float: left;background-color: none;height: 250px;">
+									<div style="padding:10px ;text-align: center;float: left;">
+									{volist name="liulan" id="data"}
+											<div style="float: left;margin-left: 20px;background-color: #fff;"> 
+												<img style="height:315px" src="/upload/{$data.tupian}" />
+												<p style="width: 180px;"></p> 
+												<span style="display: block;float: left;margin-left: 10px;color: #f78642;font-size: 12px;"></span>
+												<del style="margin-left: -100px;margin-top: 10px;color: #949494;"></del>
+												<dl style="    text-align: left;margin-left: 10px;color: #686868;">{$data.miaoshu}</dl>
+												<dl></dl>
+												
+											</div>
+										{/volist}
+										</div>
+										
+										
+										
+									<!-- 作者：右侧 时间：2016-05-24 描述： -->
+									
+									<!--右侧---end------->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="clear "></div>
+			<div class="ng-footer "> <textarea class="footer-dom " id="footer-dom-02 "> </textarea>
+				<div class="ng-fix-bar "></div>
+			</div>
+			<style type="text/css ">
+				.ng-footer {
+					height: 130px;
+					margin-top: 0;
+				}
+				
+				.ng-s-footer {
+					height: 130px;
+					background: none;
+					text-align: center;
+				}
+				
+				.ng-s-footer p.ng-url-list {
+					height: 25px;
+					line-height: 25px;
+				}
+				
+				.ng-s-footer p.ng-url-list a {
+					color: #666666;
+				}
+				
+				.ng-s-footer p.ng-url-list a:hover {
+					color: #f60;
+				}
+				
+				.ng-s-footer .ng-authentication {
+					float: none;
+					margin: 0 auto;
+					height: 25px;
+					width: 990px;
+					margin-top: 5px;
+				}
+				
+				.ng-s-footer p.ng-copyright {
+					float: none;
+					width: 100%;
+				}
+				
+				.root1200 .ng-s-footer p.ng-copyright {
+					width: 100%;
+				}
+			</style>
+			<script type="text/javascript " src="js/safe/ms_common.min.js "></script>
+	</body>
+
+</html>

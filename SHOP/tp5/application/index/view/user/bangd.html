@@ -1,0 +1,204 @@
+{layout name="newlayout"}
+<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-side">
+					<div class="side-neck">
+						<i></i>
+					</div>
+					<div class="ms-side">
+						<article class="side-menu side-menu-off">
+							<dl class="side-menu-tree">
+								<dt>账户管理</dt>
+								<dd>
+									<a   href="{:url('xiugaizz')}"><span class="active"></span>我的资料</a>
+
+								</dd>
+								<dd>
+									<a  href="{:url('safe')}"  ><span></span>安全设置</a>
+
+								</dd>
+								<dd>
+									<a   href="{:url('bangd')}"   style="color:#f70"><span></span>账号绑定</a>
+
+								</dd>
+								
+								<dd>
+									<a   href="{:url('diz?did=0')}" ><span></span>地址管理</a>
+
+								</dd>
+							</dl>
+
+							<a ison="on" class="switch-side-menu icon-up-side"><i></i></a>
+						</article>
+					</div>
+				</div>
+				<div class="cont-main">
+					<div class="main-wrap mt15">
+						<h3>
+	                        <strong>绑定管理</strong>
+	                    </h3>
+						<div class="form-list tab-switch personal-wrap-show">
+							<form>
+								<div class="control-group clearfix"style="margin-top: 30px;" >
+								    <div style="float: left;margin-left: 66px;"><img  src="/img/qq.png"/></div>
+									<div class="bang" style="margin-left: 29px;width:500px;margin-top:20px;float: left;font-size: 14px;color: #000000;">QQ账号绑定&nbsp;&nbsp;&nbsp; 已绑定<span class="bangqq">{$qq}<span></div>
+									
+									<div   style="float: left;margin-top: 12px;">
+
+									<span class="bangding" style="background-color: #F37B1D;color: #fff;border: 0px;border-radius: 5px;padding: 6px;width: 90px;height: 30px;margin-left: 20px">马上绑定/修改</span>
+
+									<input class="qq"  type="text" style="border: 0px;border-radius: 5px;padding: 6px;width: 156px;height: 30px;margin-left: 20px;display:none" />
+									<span style="display:none;float:right" class="xiugai"><a>修改/绑定</a></span>
+									</div>
+
+									<div  style="display:none;float: left;margin-top: 12px;"></div>
+								</div>
+								<script>
+									
+									$(function(){
+										$('.bangding').click(function(){
+											$('.bangding').css('display','none');
+											$('.qq').css('display','block');
+											$('.xiugai').css('display','block');
+
+
+										})
+
+
+										$('.xiugai').click(function(){
+											var sss = $('.qq').val();
+											$.ajax({
+														url:'/index/user/bangdingqq',
+														method:'post',
+														data:{qq:sss},
+														dataType:'json',
+														success:
+														function(data){
+															$('.bangqq').text(data);
+															$('.bangding').css('display','initial');
+															$('.qq').css('display','none');
+															$('.xiugai').css('display','none');		
+														}
+													});
+										})
+							
+									})
+
+
+							
+
+								</script>
+
+
+								<div style="border-bottom: 0px solid #ccc;width:910px;margin-left:60px"></div>
+									<div class="control-group clearfix"style="margin-top: 30px;" >
+								    <div style="float: left;margin-left: 66px;"><img  src="/img/wx.png"/></div>
+									<div  style="margin-left: 29px;width:500px;margin-top:20px;float: left;font-size: 14px;color: #000000;">微信账号绑定&nbsp;&nbsp;&nbsp; 已绑定<span class="bangweixin">{$weixin}<span></div>
+									<div style="float: left;margin-top: 12px;">
+
+										<span class="bangding1" style="background-color: #F37B1D;color: #fff;border: 0px;border-radius: 5px;padding: 6px;width: 90px;height: 30px;margin-left: 20px;">马上绑定/修改</span>
+
+
+										<input class="weixin"  type="text" style="border: 0px;border-radius: 5px;padding: 6px;width: 156px;height: 30px;margin-left: 20px;display:none" />
+										<span style="display:none;float:right" class="xiugai1"><a>修改/绑定</a></span>
+
+								</div>
+								<div style="border-bottom: 0px solid #ccc;width:910px;margin-left:60px"></div>
+
+								<script>
+									
+									$(function(){
+										$('.bangding1').click(function(){
+											$('.bangding1').css('display','none');
+											$('.weixin').css('display','block');
+											$('.xiugai1').css('display','block');
+
+
+										})
+
+
+										$('.xiugai1').click(function(){
+											var sss = $('.weixin').val();
+											$.ajax({
+														url:'/index/user/bangdingweixin',
+														method:'post',
+														data:{weixin:sss},
+														dataType:'json',
+														success:
+														function(data){
+															$('.bangweixin').text(data);
+															$('.bangding1').css('display','initial');
+															$('.weixin').css('display','none');
+															$('.xiugai1').css('display','none');		
+														}
+													});
+										})
+							
+									})
+
+
+							
+
+								</script>
+
+
+
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="ng-footer">
+
+			<textarea class="footer-dom" id="footer-dom-02">
+			</textarea>
+			<div class="ng-fix-bar"></div>
+		</div>
+		<style type="text/css">
+			.ng-footer {
+				height: 130px;
+				margin-top: 0;
+			}
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript" src="js/safe/ms_common.min.js" ></script>
+	</body>
+
+</html>

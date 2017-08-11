@@ -1,0 +1,304 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-side">
+				<div class="side-neck" style="margin-top: 20px;">
+						<i></i>
+					</div>
+					<div class="ms-side" style="margin-top: 20px;" >
+						<article class="side-menu side-menu-off">
+							<dl class="side-menu-tree" style="padding-left: 30px;">
+								<dt><img src="/img/左侧/我的购物车.png"  style="margin-right: 10px;margin-left: -20px;"/>我的购物车</dt>
+								<dt><img src="/img/左侧/file.png"  style="margin-right: 10px;margin-left: -20px;"/>订单管理</dt>
+								<dd>
+									<a href="{:url('dingd')}">我的订单</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('cang')}">我的收藏</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('pingj')}">我的评价</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('zuj')}">我的足迹</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('paim')}">我的拍卖</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('youhuiq')}" >我的优惠券</a>
+
+								</dd>
+								<dt><img src="/img/左侧/我的买啦.png"  style="margin-right: 10px;margin-left: -20px;"/>我的买啦</dt>
+								<dd>
+									<a href="{:url('tuij')}">我的推荐</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('qianb')}">我的钱包</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('tix')}">我要提现</a>
+
+								</dd>
+								<dd>
+									<a style="color:#f70" href="{:url('maid')}">我的买豆</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('guanl')}">邀请管理</a>
+
+								</dd>
+								<dt><img src="/img/左侧/v-card-3.png"  style="margin-right: 10px;margin-left: -20px;"/>售后服务</dt>
+								<dd>
+									<a href="{:url('tuih')}">退换货</a>
+
+								</dd>
+								<dd>
+									<a  href="{:url('yij')}">意见/投诉</a>
+
+								</dd>
+							</dl>
+
+							<a ison="on" class="switch-side-menu icon-up-side"><i></i></a>
+						</article>
+					</div>
+				</div>
+				<div class="cont-main">
+					<div class="main-wrap mt15" style="border: 0px;">
+						
+						    <div style="width: 1017px;height: 135px;background-image: url(/img/我的买豆/组-38.png);">
+						    	<p style="text-align: center;font-size: 14px;color: #333333;margin-left: -28px;    line-height: 23px;;">买豆专区</p>
+						    <div style="float: left;margin-left: 21px;">
+						    	
+						    	<div style="float: left;margin-left: 107px;">
+						    		<img src="/img/我的买豆/猪的图标.png" />
+						    	</div>
+						    	<div style="float: left;margin-left: 32px;margin-top:15px;">
+						    		<dl style="font-size: 14px;font-weight:bold;color: #333333;margin-top: -10px;">可有买豆：<font style="color: #F88600;font-size: 25px;">{$dou}</font></dl>
+						    		<dl style="font-size: 12px;color: #333333;margin-top: 10px;">可抵现25元 1元买豆=1元</dl>
+						    	</div>
+						    	
+						    </div>
+						    
+						    <div style="float: left;">
+						    	<div style="float: left;margin-left: 160px;">
+						    		<img src="/img/我的买豆/矢量智能对象.png" />
+						    	</div>
+						    	<div style="float: left;margin-left: 32px;margin-top: 15px;">
+						    		<dl style="font-size: 14px;font-weight:bold;color: #333333;">兑换商品：买豆换购开始了！</dl>
+						    		<dl style="font-size: 12px;color: #333333;margin-top: 5px;"><span style="color: #fff;background-color: #F88600;border-radius: 5px;width: 100px;height: 20px;display: block;line-height: 20px;text-align: center;">点击兑换</span></dl>
+						    	</div>
+						    </div>
+						    </div>
+						
+						
+						     <div style=" font-size:14px;color:#333333;width: 1017px;height: 50px;background-color: #f5f5f5;margin-top:20px;">
+						     	
+						     	<span style="margin-left:40px ;line-height: 50px;font-weight: bold;    padding-bottom: 14px;
+    border-bottom: 2px #f88600 solid;">买豆明细</span>
+						        <span style="margin-left:100px ;line-height: 50px;font-weight: bold;">买豆收入</span>
+						        <span style="margin-left:100px ;line-height: 50px;font-weight: bold;">买豆支出</span>
+						        
+						        <input type="text"  style="width: 150px;float: right;margin-top: 16px;margin-right: 20px;" placeholder="最近三个月买都记录"  />
+						     
+						     </div>
+						
+						<table class="sui-table  table-bordered-simple" style="width: 1017px;margin-top: 20px;font-size: 14px;color: #333333;">
+							  <tbody id="tbody">
+							    <tr>
+							      <td>产生时间</td>
+							      <td>类型</td>
+							      <td>收入/收入</td>
+							      <td>当前买豆数量</td>
+							    </tr>
+							    <tr style="font-size: 12px;color:#686868;">
+							      <td>2016-10-25</td>
+							      <td>每日签到</td>
+							      <td>5</td>
+							      <td>8</td>
+							    </tr>
+							    <tr  style="font-size: 12px;color:#686868;">
+							      <td>2016-10-24</td>
+							      <td>每日签到</td>
+							      <td>5</td>
+							      <td>3</td>
+							    </tr>
+							    <tr  style="font-size: 12px;color:#686868;">
+							      <td>2016-10-24</td>
+							      <td>每日签到</td>
+							      <td>5</td>
+							      <td>2</td>
+							    </tr>
+							  </tbody>
+							</table>	
+							
+			
+							<div>
+								<p style=" width: 90px;background-color: #fff;    float: left;font-size: 14px;font-weight: bold;    margin-top: 20px; margin-left: 12px;">买豆兑换</p> <span  style="    width: 56px;font-size: 8px; float: left;position: absolute;background-image: url(/img/我的买豆/多边形-4.png); display: block;text-align: right; color: #fff;margin-left: 70px; margin-top: 16px;">热门兑换</span>
+							</div>
+							<div style="margin-top: 100px;">
+							
+								{volist name="shop" id="data"}
+									<div style="float: left; ">
+								 		<div style="background-image: url(/img/我的买豆/组-39.png);width: 219px;height: 344px;padding: 3px">
+								 			<img src="/upload/{$data.tupian}" style="width: 216px;height:230px;"/>
+								 			<span style="margin-left:-216px;background-color:#fa6e4c;padding: 3px;color: #fff;margin-top:-10px;position: absolute;float: right;">{$data.price}买豆</span>
+								 		    <dl style="color: #333333;font-size: 12px;position: absolute;margin-top:0px;margin-left: 00px;">使用条件：满40.00</dl>
+								 		    <dl style="color: #333333;font-size: 16px;font-weight:bold;position: absolute;margin-top:20px;margin-left: 00px;">￥{$data.price}</dl>
+								 		    <span class ="huangou" sid="{$data.sid}" value="{$data.price}" style="padding: 2px;background-color:#F88600;color:#fff;display: block;text-align: center;margin-left: 40px;margin-top: 60px;width: 130px;height: 30px;line-height: 30px;border-radius: 5px;">立即换购</span>
+								 		</div>
+								 	</div>
+								 {/volist}	
+								 
+								 
+								 	
+							</div>
+							
+					</div>
+				</div>
+
+			</div>
+		</div>
+		</div>
+		<div class="clear"></div>
+		<div class="ng-footer">
+
+			<textarea class="footer-dom" id="footer-dom-02">
+			</textarea>
+			<div class="ng-fix-bar"></div>
+		</div>
+		<style type="text/css">
+		    .yuan{
+		    	height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    background-color: #64bdc5;
+    display: block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 50px;
+    
+		    }
+		
+			.ng-footer {
+				height:514px;
+				margin-top: 0;
+			}
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<!-- <script type="text/javascript" src="/js/safe/ms_common.min.js"></script> -->
+	</body>
+		<script>
+					$(function(){
+						var obj = new Date();
+						var time = obj.getTime();
+						$.ajax({
+							type:'post',
+							url:"/index/index/dou",
+							data:{time:time},
+							dataType:'json',
+							success:function(data){
+								console.log(data);
+								
+							}
+						});
+						
+					
+					
+					});
+					//	//
+						$('.huangou').click(function(){
+						var jiage = $(this).attr('value');
+						var sid = $(this).attr('sid');
+						var uid = {$uid};
+						//创建div
+						var oDiv = document.createElement('div');
+						var fm = document.createElement('form');
+						var input = document.createElement('input');
+						var hidden1 = document.createElement('input');
+						var hidden2 = document.createElement('input');
+						var hidden3 = document.createElement('input');
+						var submit = document.createElement('input');
+						//form
+						fm.action = '/index/index/buy';
+						fm.method = 'post';
+						//input
+						input.type='text';
+						input.name='password';
+						submit.type="submit";
+						submit.value='确定';
+						//hidden
+						hidden1.type="hidden";
+						hidden1.name='uid';
+						hidden1.value=uid;
+						hidden2.type="hidden";
+						hidden2.name='sid';
+						hidden2.value=sid;
+						hidden3.type="hidden";
+						hidden3.name='jiage';
+						hidden3.value=jiage;
+						
+						oDiv.style.cssText = 'width:500px;height:250px;background:#ccc;position:fixed;top:250px;left:500;z-index:100;text-align:center;color:red;line-height:100px;';
+						oDiv.innerHTML = '请输入密码';
+						document.body.appendChild(oDiv);
+						oDiv.appendChild(fm);
+						fm.appendChild(input);
+						fm.appendChild(hidden1);
+						fm.appendChild(hidden2);
+						fm.appendChild(hidden3);
+						fm.appendChild(submit);
+						
+					
+						
+						});
+						
+					
+
+				</script>
+
+</html>

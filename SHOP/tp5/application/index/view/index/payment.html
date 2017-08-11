@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>结算</title>
+		<link rel="stylesheet" type="text/css" href="/css/payment.css"/>
+		<script type="text/javascript" src="/js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="/js/payment.js"></script>	
+				
+	</head>
+	<body>
+		<!--=================结算页头部================-->
+		<div id="top">
+			<div class="topcontain">			
+				<h1><a href="/index" style="padding-top:20px;color:#aaa">返回首页</a></h1>
+				<div class="top-center">
+					<a href="{:url('user/shop')}"><p class="p1">购物车</p></a>
+					<p class="p2"><span>15011004268</span>您好，欢迎来到麦包包！</p>
+				</div>
+				<div class="top-right">
+					<img src="/images/shoppingcar/logo-right.jpg" />
+					<ul>
+						<li class="red">1.确认采购商品</li>
+						<li class="red">2.填写收货信息</li>
+						<li>3.支付</li>
+						<li>4.支付成功</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--=================结算页主体================-->
+		<div id="subject">
+			<div id="container">
+				<!--=====模块一====-->
+				<div class="mk1">
+					<h2>1.填写收货地址</h2>
+					
+					<div class="adress">
+						<p id="newAddress"><b>+</b><span >使用新地址</span></p>
+					</div>
+					<div class="delivery">
+						<h2 class="subbt">配送方式</h2>
+						<p><span>顺丰快递</span>服务升级，全场发顺丰</p>
+					</div>
+				</div>
+				<!--=====模块二====-->
+				<div class="mk2">
+					<h2>2.商品清单</h2>
+					<div class="product-info">
+						<div class="label">
+							<span class="span1">商品名称</span>
+							<span class="span2">单价</span>
+							<span class="span3">数量</span>
+							<span class="span4">小计</span>
+							<span class="span5">操作</span>
+						</div>
+					{volist name="paylist" id="data"}
+					<input onclick = "demo()" class="checkbox" name="店铺" type="checkbox" value="{$data.cid}" style="margin-top: 20px;margin-left: 20px;" />
+						<ul class="items">
+							<li>
+								<div class="imgcon"><img src="/upload/{$data.tupian}"></div>
+								<div class="desc">
+									<p>[{$data.mleixing}]{$data.miaoshu}</p>
+									<p>{$data.cid}</p>
+								</div>
+									<span>￥<b class="danj">{$data.price}</b></span>
+								<p>
+									<em class="jian">-</em>
+									<input class="num" type="text" value="1" />
+									<i class="jia">+</i>
+								</p>
+								<b>￥<i class="je" >{$data.price}</i></b>
+								
+								<div class="delete"><a href="{:url('index/payshan')}?cid={$data.cid}">删除</a></div>
+							</li>
+						</ul>
+					{/volist}
+	
+						<div class="price">
+							<p class="p1">商品件数：<span>0</span>件</p>
+							<p class="p2">商品金额（不含运费）：￥<span>0</span></p>
+							<p class="p3">运费：￥<span>10</span></p>
+							<p class="p4">应付金额：<span>￥<b id="tot" >0</b></span></p>
+						</div>
+					</div>
+				</div>
+				<!--=====模块三====-->
+				<div class="mk3">
+					<h2>3.发票/留言</h2>
+					<div class="massege">
+						<h3>订单留言</h3>
+						<textarea name="massege" rows="4" cols="50"></textarea>
+						<p>字数控制在50以内</p>	
+					</div>
+				</div>
+				<div class="mk4">
+					<div class="confirm">
+						<ul>
+							<li class="li1">应付金额：<b>￥<span id="total" >0</span></b></li>
+							<li>配送至：<!--<input type="text" />--></li>
+							<li>收货人：<!--<input type="text" />--></li>
+							
+						</ul>
+					</div>
+					
+					<p><button onclick="fukuan()">确认无误，提交订单</button></p>
+				</div>
+			</div>
+			
+		</div>
+		<!--=================结算版心================-->
+		<script>
+		var jian = document.getElementsByClassName('jian');
+		var jia = document.getElementsByClassName('jia');
+		var num = document.getElementsByClassName('num');
+		var danj = document.getElementsByClassName('danj');
+		var je = document.getElementsByClassName('je');
+		var checkbox = document.getElementsByClassName('checkbox');
+		var totle = 0;
+		var tot = document.getElementById('tot');
+		var total = document.getElementById('total');
+		
+		for(var i=0;i< jia.length;i++){
+		
+			jia[i].index = i;
+			jia[i].onclick = function(){
+
+				var n = parseInt(num[this.index].value);
+				var dj = parseInt(danj[this.index].innerHTML);
+					n = n + 1;
+				num[this.index].value = n;
+				je[this.index].innerHTML = dj*n;
+				demo()
+			}
+		}
+		for(var i=0;i< jia.length;i++){
+		
+			jian[i].index = i;
+			jian[i].onclick = function(){
+				var n = parseInt(num[this.index].value);
+				var dj = parseInt(danj[this.index].innerHTML);
+					n = n - 1;
+					if(n<=1){
+						n=1;
+					}
+				num[this.index].value = n;
+				je[this.index].innerHTML = dj*n;
+				demo();
+			}
+		}
+		function demo(){
+			for(var i=0;i<checkbox.length;i++){
+				if(checkbox[i].checked == true){
+					 totle = totle +  parseInt(je[i].innerHTML);
+				}
+			}
+			tot.innerHTML = totle;
+			total.innerHTML = totle;
+			totle =0;
+		}
+		function fukuan()
+		{	
+
+			var sid = '';
+			var uid = {$uid};
+			var did = {$did};
+
+			for(var i=0;i<checkbox.length;i++){
+				if(checkbox[i].checked == true){
+					if(sid){
+						sid = sid+','+checkbox[i].value;
+					}else{
+						sid = checkbox[i].value;
+					}
+				}
+			}
+			demo();
+			var zong = total.innerHTML;
+			if(!sid || !zong){
+				alert('请选择商品');
+				return false;
+			
+			}
+
+			$.ajax({
+				url:'/index/index/zhifu',
+				method:'post',
+				data:{uid:uid,sid:sid,zong:zong,did:did},
+				dataType:'json',
+				success:function(data){
+					console.log(data);
+					var div = document.createElement('div');
+					var form = document.createElement('form');
+					var input = document.createElement('input');
+					var hidden = document.createElement('input');
+					var hiddenz = document.createElement('input');
+					var submit = document.createElement('input');
+					var hidden1 = document.createElement('input');
+					var scrollTop = document.body.scrollTop;
+					form.action = "/index/index/checkpass";
+					form.method = 'post';
+					
+					//
+					input.type="password";
+					input.name="password";
+					hidden.type="hidden";
+					hiddenz.type="hidden";
+					hidden.name="cid";
+					hiddenz.name="zong";
+					hiddenz.value= zong;
+					hidden.value=sid;
+					hidden1.value=did;
+					hidden1.name='did';
+					hidden1.type="hidden";
+					submit.type="submit";
+					submit.value="确定";
+					//
+					div.style.cssText = 'width:100%;height:100%;background:#ccc;position:absolute;top:'+scrollTop+'px;left:0px;z-index:1;opacity:0.8;text-align:center;line-height:150px;font-size:25px;color:red;';
+					console.log(2222);
+					if(data > parseInt(zong)){
+						div.innerHTML = '目前拥有金币'+data+' 本次购买需要支付金币'+zong+';请在下面输入支付密码:';
+					}else{
+						div.innerHTML = '目前拥有金币'+data+' 本次购买需要支付金币'+zong+';金币不足请充值！<br />请输入密码:'
+						
+					}
+					document.body.appendChild(div);
+					div.appendChild(form);
+					form.appendChild(input);
+					form.appendChild(hidden);
+					form.appendChild(hiddenz);
+					form.appendChild(hidden1);
+					form.appendChild(submit);
+					
+				}
+			});
+
+		}
+	</script>
+		<!--=================结算底部================-->
+		
+		<div id="mtk"></div>
+		<div class="mtkcons">
+			<h2>请填写收货地址</h2>
+			<div class="adress">
+				<p class="area">	
+				<em><span>*</span>
+				省</em><select name="provinces" id="provinces">
+					<option value="province" selected="selected" id="selectedpro">北京</option>
+					<option value="province">天津</option>
+					<option value="province">广东</option>
+					<option value="province">湖北</option>
+				</select>
+				市<select name="citys" id="citys">
+					<option value="city" selected="selected" id="selectedcity">北京</option>
+					<option value="city">天津</option>
+					<option value="city">深圳</option>
+					<option value="city">武汉</option>
+				</select>
+				区/县<select name="countys" id="countys">
+					<option value="county" selected="selected" id="selectedcounty">昌平</option>
+					<option value="county">丰台</option>
+					<option value="county">朝阳</option>
+					<option value="county">海淀</option>
+				</select>
+				</p>
+				<p><em><span>*</span>街道地址：</em><input type="text" class="street"/></p>
+				<p><em><span>*</span>收货人姓名：</em><input type="text" class="receiver"/></p>
+				<p><em><span>*</span>手机：</em><input type="text" class="tel"/></p>
+				<p><em><span>*</span>电话：</em><input type="text"/></p>
+				<p class="btn">
+					<button class="commit">确认</button>
+					<button class="cancel">取消</button>
+				</p>
+			</div>	
+		</div>
+		
+	</body>
+	<script>
+	
+	//点击“使用新地址”，出现模态框
+	$("#newAddress").on("click",function(){
+		//alert(1);
+		$("#mtk").addClass("active");
+		$(".mtkcons").addClass("show");
+	})
+	
+	$(".commit").on("click",function(){
+		//alert(1);
+		$("#mtk").removeClass("active");
+		$(".mtkcons").removeClass("show");
+		var province = $("#selectedpro").text();  //省
+		var city = $("#selectedcity").text(); //市
+		var county = $("#selectedcounty").text(); //县
+		var street = $(".street").val();   //街道
+		var receiver = $(".receiver").val();   //收件人
+		var address = {
+			province:province,
+			city:city,
+			county:county,
+			street:street	
+		}
+		
+	
+	})
+	
+	
+	
+	</script>
+</html>

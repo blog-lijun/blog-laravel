@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/xiaomi.css"/>
+    <script type="text/javascript" src="./js/jquery-2.1.4.min.js"></script>
+    <script src="./js/jquery.animate-colors-min.js"></script>
+    <style>
+        #head_nav a{color:white;}
+    </style>
+</head>
+<body>
+     <div class="head_box">
+         <div id="head_wrap">
+             <div id="head_nav" >
+				 <a href="{:url('index/index')}" class="head_nav_a" id="Select_Region_but">买啦首页 |</a> 
+                 {if $session}
+                    <a href="{:url('user/sale')}" class="head_nav_a" id="Select_Region_but">卖家中心</a> 
+                 {else}
+                    <a href="{:url('user/login')}" class="head_nav_a" id="Select_Region_but">卖家中心</a>
+                 {/if}
+             </div>
+             <div id="head_right">
+                {if $session}
+                <div id="head_landing">
+                     <a href="/index/user/list" style="color:white;"class="head_nav_a">欢迎用户:{$session}</a>
+                      <span>|</span>
+                     <a href="/index/user/sindex?zt=0" style="color:white;" class="head_nav_a">我的地盘</a>
+                     <span>|</span>
+                     <a href="/index/index/out" style="color:white;" class="head_nav_a">退出</a>
+                 </div>
+                 <div id="head_car">
+                     <a id="carnum"  href="{:url('user/shop')}" style="color:#fff" class="head_car_text">购物车0</a>
+                     <div id="car_content" style="height: 0px;width:0px ;background-color: #edffc6;z-index: 999">
+                         <a class="car_text"></a>
+                     </div>
+                 </div>
+                {else}
+                 <div id="head_landing">
+                     <a href="{:url('user/login')}" style="color:white;" class="head_nav_a">登陆</a>
+                     <span>|</span>
+                     <a href="/index/user/list" style="color:white;" class="head_nav_a">注册</a>
+                 </div>
+                 <div id="head_car">
+                     <a href="{:url('user/shop')}" style="color:#fff" class="head_car_text">购物车（<font color="red">0</font>）</a>
+                     <div id="car_content" style="height: 0px;width:0px ;background-color: #edffc6;z-index: 999">
+                         <a class="car_text"></a>
+                     </div>
+                 </div>
+                 {/if}
+             </div>
+         </div>
+     </div>
+     <div id="main_head_box">
+         <div id="menu_wrap">
+             <div id="menu_logo">
+                 <img src="./img/lion.png" width="100" height="50" />
+             </div>
+             <div id="menu_nav">
+                 <ul>
+                     <li class="menu_li" control="xiaomiphone"><a href="#女装" style="color:black;">女装</a></li>
+                     <li class="menu_li" control="hongmiphone"><a href="#男装"style="color:black;" >男装</a></li>
+                     <li class="menu_li" control="pingban"><a href="#鞋子" style="color:black;">鞋子</a></li>
+                     <li class="menu_li" control="tv"><a href="#箱包"style="color:black;" >箱包</a>&nbsp;&nbsp;<a href="#配件" style="color:black;" >配件</a></li>
+                     <li class="menu_li" control="luyou"><a href="#珠宝"style="color:black;" >珠宝</a></li>
+                     <li class="menu_li" control="yingjian"><a href="#家电"style="color:black;" >家电</a></li>
+                     <li><a href="#数码" style="color:black;">数码</a></li>
+                     <li><a href="#手机" style="color:black;">手机</a></li>
+                 </ul>
+             </div>
+			 <form action="/index/index/abc" method="post">
+				 <div id="find_wrap">
+					 <div id="find_bar">
+						 <input type="text" id="find_input" name="content" value=""/>
+					 </div>
+					 <input type="submit" value="GO" id="find_but" style="border:1px solid #fff;"></input>
+				 </div>
+			</form>
+         </div>
+     </div>
+	 <!--大搜索-->
+	
+     <div id="menu_content_bg" style="height: 0px;">
+         <div id="menu_content_wrap">
+             <ul style="top: 0px;">
+                 <li id="xiaomiphone">
+                     <div class="menu_content">
+                         <img src="/shop/img/000.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">连衣裙</p>
+                         <p class="menu_content_price">188元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/0000.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">短裙</p>
+                         <p class="menu_content_price">199元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/00000.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">女装</p>
+                         <p class="menu_content_price">88元起</p>
+                     </div>
+                 </li>
+                 <li id="hongmiphone">
+                     <div class="menu_content">
+                         <img src="/shop/img/000000.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">男装</p>
+                         <p class="menu_content_price">499元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car2.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">衬衫</p>
+                         <p class="menu_content_price">49元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car1.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">夹克</p>
+                         <p class="menu_content_price">69元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car3.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">美女</p>
+                         <p class="menu_content_price">79元起</p>
+                     </div>
+                 </li>
+                 <li id="pingban">
+                     <div class="menu_content">
+                         <img src="/shop/img/car4.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">小清新</p>
+                         <p class="menu_content_price">199元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car5.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">成熟范</p>
+                         <p class="menu_content_price">1499元起</p>
+                     </div>
+                     <div class="menu_content">
+                         <img src="/shop/img/j9.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">我来了</p>
+                         <p class="menu_content_price">149元起</p>
+                     </div> 
+                     <div class="menu_content">
+                         <img src="/shop/img/j10.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">薄纱性</p>
+                         <p class="menu_content_price">149元起</p>
+                     </div>
+                     <div class="menu_content">
+                         <img src="/shop/img/j11.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">暖男控</p>
+                         <p class="menu_content_price">199元起</p>
+                     </div>
+                 </li>
+                 <li id="tv">
+                     <div class="menu_content">
+                         <img src="/shop/img/car6.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">女王范
+                         <p class="menu_content_price">1999元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car7.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">多颗心</p>
+                         <p class="menu_content_price">29元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car8.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">超强视觉</p>
+                         <p class="menu_content_price">33元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car9.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">学院风</p>
+                         <p class="menu_content_price">49元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car10.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">大叔控</p>
+                         <p class="menu_content_price">199元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car11.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">屌丝空</p>
+                         <p class="menu_content_price">299元</p>
+                     </div>
+                 </li>
+                 <li id="luyou">
+                     <div class="menu_content">
+                         <img src="/shop/img/car12.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">女神经</p>
+                         <p class="menu_content_price">69元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/car13.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">文艺范</p>
+                         <p class="menu_content_price">129元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/j1.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">女神必备</p>
+                         <p class="menu_content_price">79元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/j2.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">放大招</p>
+                         <p class="menu_content_price">39元</p>
+                     </div>
+                 </li>
+                 <li id="yingjian">
+                     <div class="menu_content">
+                         <img src="/shop/img/j3.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">清晰风</p>
+                         <p class="menu_content_price">99元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/j4.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">四大美人</p>
+                         <p class="menu_content_price">129元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/j5.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">王者风</p>
+                         <p class="menu_content_price">399元起</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/j6.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">登山装</p>
+                         <p class="menu_content_price">199元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/j7.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">羽绒服</p>
+                         <p class="menu_content_price">159元</p>
+                     </div>
+                     <span class="menu_content_line"></span>
+                     <div class="menu_content">
+                         <img src="/shop/img/j8.jpg" style="margin-left:30px;" width="110" height="110">
+                         <p class="menu_content_tit">查看全部
+                             <br>智能硬件</p>
+                     </div>
+                 </li>
+             </ul>
+         </div>
+     </div>
+     <div id="big_banner_wrap">
+         <ul id="banner_menu_wrap">
+         {for start="0" end="20" step="3" }
+             <li class="active">
+                 <a href="#{$blist[$i]['name']}">{$blist[$i]['name']}</a><a href="#{$blist[$i+1]['name']}">/{$blist[$i+1]['name']}</a><a href="#{$blist[$i+2]['name']}">/{$blist[$i+2]['name']}</a>
+                 <a class="banner_menu_i">&gt;</a>
+                 <div class="banner_menu_content" style="width: 600px; top: -20px;">
+                 <div style="float:left;over-flow:hidden;">
+                 <div style="flat:left;font-weight:bold;">{$blist[$i]['name']}:</div>
+                     <ul class="banner_menu_content_ul">
+                        {volist name="slist" id="data" key="k"}
+                            
+                            {if condition="($data['bid'] == ($i+1))"}
+                            
+                            <li>
+                                <a href="#{$blist[$i]['name']}">{$data['name']}</a>
+                             </li>
+                                
+                             {/if}
+                        {/volist}
+                     </ul>
+                </div>
+                 
+                 <div style="background:red;">  <div style="float:left;font-weight:bold;">{$blist[$i+1]['name']}:</div>
+                     <ul class="banner_menu_content_ul">
+                        {volist name="slist" id="data" key="k"}
+                            
+                            {if condition="($data['bid'] == ($i+2))"}
+                            
+                            <li>
+                                <a href="#{$blist[$i+1]['name']}">{$data['name']}</a>
+                             </li>
+                                
+                             {/if}
+                        {/volist}
+                     </ul>
+                </div>
+                    
+                     
+                 <div style="over-flow:hidden;">
+                    <div style="float:left;font-weight:bold;">{$blist[$i+2]['name']}:</div>
+                     <ul class="banner_menu_content_ul">
+                        {volist name="slist" id="data" key="k"}
+                            
+                            {if condition="($data['bid'] == ($i+3))"}
+                            
+                            <li>
+                                <a href="#{$blist[$i+2]['name']}">{$data['name']}</a>
+                             </li>
+                                
+                             {/if}
+                        {/volist}
+                     </ul>
+                 </div>
+             </li>
+          {/for}
+             
+         </ul>
+         <div id="big_banner_pic_wrap">
+             <ul id="big_banner_pic">
+                 <li><img src="./img/TT1.jpg" width=960 height="460" style="margin-left:250px;"/></li>
+                 <li><img src="./img/TT2.jpg" width=960 height="460" style="margin-left:250px;"/></li>
+                 <li><img src="./img/TT3.jpg" width=960 height="460" style="margin-left:250px;"/></li>
+                 <li><img src="./img/TT4.jpg" width=960 height="460" style="margin-left:250px;"/></li>
+                 <li><img src="./img/TT5.jpg" width=960 height="460" style="margin-left:250px;"/></li>
+             </ul>
+         </div>
+         <div id="big_banner_change_wrap">
+             <div id="big_banner_change_prev"> &lt;</div>
+             <div id="big_banner_change_next">&gt;</div>
+         </div>
+     </div>
+	 
+		<!--搜索展示界面-->
+	
+		{if empty($shopList)}
+						 <div id="head_hot_goods_wrap">
+						 <div id="head_hot_goods_title">
+							 <span class="title_span">热门宝贝</span>
+							 <div id="head_hot_goods_change">
+								 <span id="head_hot_goods_prave"><</span>
+								 <span id="head_hot_goods_next">></span>
+							 </div>
+						 </div>
+						 <div id="head_hot_goods_content">
+							 <ul>
+							 {volist name="hot" id="data"}
+								 <li>
+									 <a href="{:url('index/shop')}?upload={$data.tupian}&miaoshu={$data.miaoshu}&mlei={$data.mleixing}&price={$data.price}&sid={$data.sid}&uid={$uid}"><img src="./upload/{$data.tupian}" width="235" height="235"></a>
+									 <a href="{:url('index/shop')}">{$data.miaoshu}</a>
+									 <a href="{:url('index/shop')}">{$data.bleixing}->{$data.mleixing}</a>
+								 </li>
+							  {/volist}
+							 </ul>
+						 </div>
+					 </div>
+					{volist name="bleixing" id="leixing"}
+					
+					 <div id="main_show_box">
+						 <div id="floor_1">
+							  <div id="floor_head">
+								  <a name="{$leixing.name}"><span class="title_span">{$leixing.name}</span></a>
+							  </div>
+						 </div> 
+						 
+						 <div class="floor_goods_wrap">
+							 <ul style="height:auto;">
+								{volist name="hot" id="data"}
+								{if $data.bleixing == $leixing.name}
+								 <li style="height:300px" class="floor_goods_wrap_li">
+									 <a   href="{:url('index/shop')}?upload={$data.tupian}&miaoshu={$data.miaoshu}&mlei={$data.mleixing}&price={$data.price}&sid={$data.sid}&uid={$uid}" class="floor_goods_img"><img src="./upload/{$data.tupian}" width="235" height="235"></a>
+									 <a  href="{:url('index/shop')}"class="floor_goods_tit">{$data.miaoshu}</a>
+									 <a href="{:url('index/shop')}" class="floor_goods_txt">{$data.mleixing}</a>
+									 <a href="{:url('index/shop')}" class="floor_goods_price">{$data.price}</a>
+								 </li>
+								 {/if}
+								{/volist}
+								 <div style="clear:both;"></div>
+							 </ul>
+						 </div> 
+						
+					 </div>
+					
+					 {/volist}
+		{else}
+				
+				<div id="main_show_box" style="background:#fff;">
+						 <div id="floor_1">
+							  <div id="floor_head" style="background:#eee;padding-left:20px;">
+								  <a name=""><span class="title_span" >我的搜索"{$content}"</span></a>
+							  </div>
+						 </div> 
+						 
+						 <div class="floor_goods_wrap">
+							 <ul style="height:auto;">
+								{volist name="shopList" id ="data"}
+								 <li style="height:300px" class="floor_goods_wrap_li">
+									 <a   href="{:url('index/shop')}?upload={$data.tupian}&miaoshu={$data.miaoshu}&mlei={$data.mleixing}&price={$data.price}&sid={$data.sid}&uid={$uid}" class="floor_goods_img"><img src="./upload/{$data.tupian}" width="235" height="235"></a>
+									 <a  href="{:url('index/shop')}"class="floor_goods_tit">{$data.miaoshu}</a>
+									 <a href="{:url('index/shop')}" class="floor_goods_txt">{$data.mleixing}</a>
+									 <a href="{:url('index/shop')}" class="floor_goods_price">{$data.price}</a>
+								 </li>
+								
+								{/volist}
+								 <div style="clear:both;"></div>
+							 </ul>
+						 </div> 
+						
+					 </div>
+		
+		
+		
+		
+		{/if}
+					 
+	 
+	 
+     <div id="foot_box">
+         <div id="foot_wrap">
+             <div class="foot_top">
+                 <ul>
+                     <li>1小时快修服务</li>
+                     <li class="font_top_i">|</li>
+                     <li>7天无理由退货</li>
+                     <li class="font_top_i">|</li>
+                     <li>15天免费换货</li>
+                     <li class="font_top_i">|</li>
+                     <li>满150元包邮</li>
+                     <li class="font_top_i">|</li>
+                     <li>520余家售后网点</li>
+                 </ul>
+             </div>
+             <div class="foot_bottom">
+                 <div class="foot_bottom_l">
+                     <dl>
+                         <dt>帮助中心</dt>
+                         <dd>购物指南</dd>
+                         <dd>支付方式</dd>
+                         <dd>配送方式</dd>
+                     </dl>
+                     <dl>
+                         <dt>服务支持</dt>
+                         <dd>售后政策</dd>
+                         <dd>自助服务</dd>
+                         <dd>相关下载</dd>
+                     </dl>
+                     <dl>
+                         <dt>大米之家</dt>
+                         <dd>大米之家</dd>
+                         <dd>服务网点</dd>
+                         <dd>预约亲临到店服务</dd>
+                     </dl>
+                     <dl>
+                         <dt>关注我们</dt>
+                         <dd>新浪微博</dd>
+                         <dd>大米部落</dd>
+                         <dd>官方微信</dd>
+                     </dl>
+                 </div>
+                 <div class="foot_bottom_r">
+                     <a>400-100-5678</a>
+                     <a>周一至周日 8:00-18:00</a>
+                     <a>（仅收市话费）</a>
+                     <span> 24小时在线客服</span>
+                 </div>
+             </div>
+         </div>
+         <div class="foot_note_box">
+             <div class="foot_note_wrap">
+                 <div class="foot_note_con">
+                     <span class="foot_logo"><img src="/img/mi-logo.png" width="38px" height="38px"></span>
+                        <span class="foot_note_txt">
+                            <a>大米网</a><h>|</h><a>MIUI</a><h>|</h><a>米聊</a><h>|</h><a>多看书城</a><h>|</h><a>大米路由器</a><h>|</h><a>大米后院</a><h>|</h><a>大米天猫店</a><h>|</h><a>大米淘宝直营店</a><h>|</h><a>大米网盟</a><h>|</h><a>问题反馈</a><h>|</h><a>Select Region</a>
+                            <a> 5555555号</a>
+                        </span>
+                 </div>
+
+             </div>
+         </div>
+     </div>
+
+<script type="text/javascript" src="./js/xiaomi.js"></script>
+<script>
+        
+    $((function(){
+        var _this = this;
+      
+        $.ajax({
+            url:"/index/index/carnum",
+            method:'post',
+            dataType:'json',
+            data:{uid:{$uid}},
+            success:function(msg){
+                $('#carnum').html('购物车<font color="red" size="5">'+msg.count+ '</font>');
+            }
+            
+        });
+   
+    
+    }));
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

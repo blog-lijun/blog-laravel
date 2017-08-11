@@ -1,0 +1,279 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-side">
+					<div class="side-neck" style="margin-top: 20px;">
+						<i></i>
+					</div>
+					<div class="ms-side" style="margin-top: 20px;">
+						<article class="side-menu side-menu-off">
+							<dl class="side-menu-tree" style="padding-left: 50px;">
+								<dt><img src="/img/左侧/我的购物车.png"  style="margin-right: 10px;margin-left: -20px;"/>我的购物车</dt>
+								<dt><img src="/img/左侧/file.png"  style="margin-right: 10px;margin-left: -20px;"/>订单管理</dt>
+								<dd>
+									<a href="{:url('dingd?zhuangtai=0')}">我的订单</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('cang')}">我的收藏</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('pingj?ping=0')}">我的评价</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('zuj')}" >我的足迹</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/我的买啦.png"  style="margin-right: 10px;margin-left: -20px;"/>我的买啦</dt>
+								
+								<dd>
+									<a href="{:url('qianb')}">我的钱包</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('tix')}">我的银行卡</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/v-card-3.png"  style="margin-right: 10px;margin-left: -20px;"/>售后服务</dt>
+								<dd>
+									<a href="{:url('tuih?sousuo=0')}">退换货</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('yij')}">意见/投诉</a>
+
+								</dd>
+							</dl>
+
+
+							<a ison="on" class="switch-side-menu icon-up-side"><i></i></a>
+						</article>
+					</div>
+				</div>
+				<div class="cont-main">
+					<div class="main-wrap mt15" style="border: 0px;">
+						<!--<h3>
+	                        <strong>个人信息</strong>
+	                    </h3>-->
+						<div class="server-wrapper">
+							<div class="server-tab" style="margin-top: 20px;">
+								<div style=" width: 503px;height: 180px;float: left;border: 1px #CCC solid;">
+									<h3 style="margin-top: 0px;font-size: 14px;color: #333333;">个人信息</h3>
+									<div style="float: left;width: 50%;">
+										<p style="margin-left: 42px;">会员名:&nbsp;&nbsp;{$username}</p>
+										
+										<p style="margin-left: 42px;">认证信息:&nbsp;&nbsp;<img src="/img/认证.png"><img src="/img/组-1-拷贝.png" style="margin-left:5px;"></p>
+									</div>
+									<div style="float: left;">
+										<span>联系方式 :</span>
+										<span style="background-color: #FFFDF1;padding: 2px;border-radius:2px;border: 1px #ccc solid;margin-left: 10px;"><img src="/img/联系方式.png"/><font style="margin-left: 5px;">给我留言</font></span>
+									</div>
+									
+								</div>
+								<div style=" width: 503px;height: 180px;float: left;border: 1px #CCC solid;margin-left: 10px;">
+									<p style="margin-top: 0px;font-size: 14px;color: #333333;font-weight: bold;margin-top: 10px;margin-left: 10px;">评价小贴士</p>
+									<ul style="    list-style: none;margin-left: 20px;font-size: 12px;">
+										<li style=" margin-left: 10px;   list-style: none;font-size: 12px;margin-top:5px "><span class="pingspan"></span>发表评价就有机会获得买豆</li>
+										
+									</ul>
+								</div>
+								<div style="width: 100%;    display: inline-block; margin-top: 20px;">
+									<h3 style="font-size: 14px;color: #333333;width: 1000px;"><span style="float: left;background-color: #F2873B;height: 15px;width: 4px;margin-top: 10px;margin-right: 10px;"></span>评价统计表</h3>
+									<p style="width: 99%;font-size: 14px;color: #333333;margin-top: 20px; margin-left: 30px; font-weight: bold;">买家积累信用:<font style="color: #007AFF;">&nbsp;&nbsp;30</font><img src="/img/图层-38-拷贝.png" style="margin-left:5px;"><img src="/img/图层-38-拷贝.png" ><span style="margin-left: 630px;">好评率:<font style="color: #F37B1D;">&nbsp;&nbsp;100.00%</font></span></p>
+									<table class="sui-table table-bordered" style="margin-left: 30px; width: 900px;">
+									  <thead>
+									    <tr>
+									      <th style="width: 80px;"></th>
+									      <th style="width: 80px;padding: 15px;">最近一周</th>
+									      <th style="width: 80px;padding: 15px">最近1个月</th>
+									      <th style="width: 80px;padding: 15px">最近6个月</th>
+									      <th style="width: 80px;padding: 15px">6个月前</th>
+									      <th style="width: 80px;padding: 15px">总计</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									    <tr >
+									      <td><img src="/img/好评.png" /> 好评</td>
+									      <td style="color: #007AFF;">{$yizhouhaonum}</td>
+									      <td style="color: #007AFF;">{$yiyuehaonum}</td>
+									      <td style="color: #007AFF;">{$liuyuehaonum}</td>
+									       <td style="color: #007AFF;">{$liuyue1haonum}</td>
+									        <td style="color: #007AFF;">{$yiyuehaonum+$liuyue1haonum}</td>
+									    </tr>
+									    <tr >
+									      <td ><img src="/img/中评.png" /> 中评</td>
+									      <td style="color: #007AFF;">{$yizhouzhongnum}</td>
+									      <td style="color: #007AFF;">{$yiyuezhongnum}</td>
+									      <td style="color: #007AFF;">{$liuyuezhongnum}</td>
+									       <td style="color: #007AFF;">{$liuyue1zhongnum}</td>
+									        <td style="color: #007AFF;">{$liuyuezhongnum+$liuyue1zhongnum}</td>
+									    </tr>
+									    <tr >
+									      <td><img src="/img/差评.png" /> 差评</td>
+									      <td style="color: #007AFF;">{$yizhouchanum}</td>
+									      <td style="color: #007AFF;">{$yiyuechanum}</td>
+									      <td style="color: #007AFF;">{$liuyuechanum}</td>
+									       <td style="color: #007AFF;">{$liuyue1chanum}</td>
+									        <td style="color: #007AFF;">{$liuyuechanum+$liuyue1chanum}</td>
+									    </tr>
+									    <tr >
+									      <td> 总计</td>
+									      <td style="color: #007AFF;">{$yizhouhaonum+$yizhouzhongnum+$yizhouchanum}</td>
+									      <td style="color: #007AFF;">{$yiyuehaonum+$yiyuezhongnum+$yiyuechanum}</td>
+									      <td style="color: #007AFF;">{$liuyuehaonum+$liuyuezhongnum+$liuyuechanum}</td>
+									       <td style="color: #007AFF;">{$liuyue1haonum+$liuyue1zhongnum+$liuyue1chanum}</td>
+									        <td style="color: #007AFF;">{$yiyuehaonum+$liuyue1haonum+$liuyuezhongnum+$liuyue1zhongnum+$liuyuechanum+$liuyue1chanum}</td>
+									    </tr>
+									  </tbody>
+									</table>
+								</div>
+								<ul class="sui-nav nav-tabs ta">
+								  <li  ><a href="/index/user/pingj?ping=mai" data-toggle="tab">来自买家的评价</a></li>
+								  <li class="active"><a href="/index/user/pingj?ping=ta" data-toggle="tab">给他人的评价</a></li>
+								  
+								</ul>
+								<ul class="sui-nav nav-tabs mai" style="display:none">
+								  <li  class="active" ><a href="/index/user/pingj?ping=mai" data-toggle="tab">来自买家的评价</a></li>
+								  <li><a href="/index/user/pingj?ping=ta" data-toggle="tab">给他人的评价</a></li>
+								  
+								</ul>
+
+				
+
+							    
+
+								  {volist name="pingjia" id="data"}
+								 	<div style="width: 96%;margin-top: 20px;display: inline-block;border-top: 1px #ccc solid;padding-top: 30px;">
+								  	
+								  	<div style="float: left;margin-left: 77px;"> 
+								  		<p style="    word-break: break-word;   width: 300px;font-size: 12px;">{$data.neirong}</p>
+								  	  <p>{$data.create_time}</p>
+								  	</div>
+								  	<div style="float: left;margin-left: 77px;"> 
+								  		<span>卖家:<a ><font style="color:#0f42b2">{$data.username}</font ></a></span>
+								  	</div>
+								  	
+								  	<div style="float: left;margin-left: 77px;"> 
+								  		<span><a ><font style="color:#0f42b2">{$data.miaoshu}</font ></a></span>
+								  		<p><font style="color:#f37b1d;">{$data.price}</font><font style="color:#333333;">元</font></p>
+								  	</div>
+								  	{if $data.username == $username}
+								  	<div style="float: left;margin-left: 77px;"> 
+								  		{if empty($data.huifu)}
+								  		<span huifu="{$data.pid}" style="background-color: #F37B1D;padding: 5px;border: 0px;color: #fff;border-radius: 5px;width: 50px;"> 回复</span>
+								  		{else /}
+								  		<span style="background-color: #F37B1D;padding: 5px;border: 0px;color: #fff;border-radius: 5px;width: 50px;"> 已回复</span>
+								  		{/if}
+								  		<div huifuneirong="{$data.pid}" style="display:none">
+								  		<textarea shuru="{$data.pid}" col="10" rows="10" placeholder="请输入回复内容"></textarea><br /><a href="" huifuqueren="{$data.pid}">确认</a>
+								  		</div>
+								  	</div>
+								  	{/if}
+								  	</div>
+
+								  	<script>
+								  		$(function(){
+								  			$("span[huifu='{$data.pid}']").click(function(){
+								  				$("span[huifu='{$data.pid}']").css('display','none');
+								  				$("div[huifuneirong='{$data.pid}']").css('display','block');
+								  				
+								  			});
+
+								  			$("a[huifuqueren='{$data.pid}']").click(function(){
+								  				var neirong = $("textarea[shuru='{$data.pid}']").val();
+								  				$.ajax({
+													url:'/index/user/huifuqueren?pid={$data.pid}',
+													method:'post',
+													data:{neirong:neirong},
+													dataType:'json',
+													success:
+														function(data){
+														
+														}
+													});
+
+								  			});
+
+
+								  		})
+
+
+								  	</script>
+								  	
+								 {/volist} 	
+								  	
+								  	
+								  	<div style="width: 96%;margin-top: 20px;display: inline-block;border-top: 1px #ccc solid;padding-top: 30px;">						
+
+								  		
+								  	</div>
+								  	
+								  </div>
+								 
+								</div>
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		</div>
+		<div class="clear "></div>
+		<div class="ng-footer ">
+
+			<textarea class="footer-dom " id="footer-dom-02 ">
+			</textarea>
+			<div class="ng-fix-bar "></div>
+		</div>
+		<style type="text/css ">
+			.ng-footer {
+				height: 130px;
+				margin-top: 0;
+			}
+		
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript " src="js/safe/ms_common.min.js "></script>
+	</body>
+
+</html>

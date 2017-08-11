@@ -1,0 +1,50 @@
+.img{background: url(../img/j000.jpg) no-repeat -420px top;width:100%;height:300px;position: relative;}
+.manjian{width:1200px;margin:0 auto;height:30px;line-height:30px;}
+.manjian1{padding:5px 9px;background: #FF464E;color: #fff;border-radius: 3px;}
+.manjian2{color:#666;}
+.click1{float: right;color:#666;background: url(../img/clock.png)no-repeat left center;padding-left: 18px;}
+.manjian0{width:100%;border-bottom:1px solid #ddd;overflow: hidden;}
+.auto{position:relative;width:1200px;margin: 0 auto;height:auto;overflow: hidden;margin-bottom: 80px;}
+.qiangguangle{width:285px;height:384px;cursor:pointer;background: #fff ;position: absolute;z-index: 10;bottom:0;filter: alpha(opacity=50);opacity: 0.5;}
+.buyover{cursor:pointer;background:url(../img/buy-over.png) no-repeat center center;width:120px;height:120px;position: absolute;left:80px;bottom:180px;z-index: 12;}
+.qiangguangle1{cursor:pointer;width:285px;height:384px;background: #fff ;position: absolute;z-index: 10;left:305px;bottom:0;filter: alpha(opacity=50);opacity: 0.5;}
+.buyover1{cursor:pointer;background:url(../img/buy-over.png) no-repeat center center;width:120px;height:120px;position: absolute;left:390px;bottom:180px;z-index: 12;}
+.kqtx{width:540px;height:295px;position:fixed;left:440px;top:200px;z-index:300;background:#fff;border:7px solid rgba(0,0,0,0.4);}
+.kqgrap{width:500px;height:53px;background-color: #f0f1f3;line-height:53px;color: #666;font-size: 14px;padding:0 20px;}
+.cuo1{cursor:pointer;float: left;width:13px;height:13px;background: url(../img/dl2.gif) no-repeat;position: absolute;top:20px;right: 20px;}
+.nohave{width: 540px;text-align: center;font-size: 16px;color:#FF464E;font-weight: 900;margin-top:50px;}
+.nohave1{width: 540px;text-align: center;font-size: 12px;color:#a3a3a3;font-weight: 900;margin:20px 0 40px 0;}
+.sctx{width:295px;height: 32px;padding:18px 0 0 10px;font-size:14px;color:#444;background: url(../img/item-like-bj.gif);margin:0 auto;font-weight: 900;}
+.orangeheart{width:23px;height: 20px;display:block;background:url(../img/ppu.png) no-repeat -22px -37px;float: left;margin-right: 10px;}
+.scts{cursor: pointer;}
+.xctx{color:#444;font-weight: 900;margin-left: 40px;}
+.phone1{width:24px;height:34px;float:right;margin:-10px 13px 0 0 ;background:url(../img/phone.gif) no-repeat left top;}
+.motaikuang{width:100%;height:100%;background:rgba(0,0,0,0.4);position:fixed;top:0;left:0;z-index:120;display: none;}
+.diyizi{width:300px;height:170px;background: rgba(255,255,255,0.6);position: absolute;right:80px;top:60px;}
+.diyizi span img{width:85px;height:45px;margin:20px 0 0 80px;}
+.diyizi span{float: left;width:240px;border-bottom: 1px solid #aaa;margin-left: 30px;}
+.dyz{float: left;width:240px;margin:10px 0 0 30px;line-height: 18px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

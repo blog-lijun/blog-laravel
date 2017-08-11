@@ -1,0 +1,335 @@
+{layout name="newlayout"}
+		<header class="ms-header ms-header-inner ms-head-position">
+			<article class="ms-header-menu1">
+				<style type="text/css">
+					.nav-manage .list-nav-manage {
+						position: absolute;
+						padding: 15px 4px 10px 15px;
+						left: 0;
+						top: -15px;
+						width: 90px;
+						background: #FFF;
+						box-shadow: 1px 1px 2px #e3e3e3, -1px 1px 2px #e3e3e3;
+						z-index: 10;
+					}
+					
+					.ms-nav li {
+						float: left;
+						position: relative;
+						padding: 0 20px;
+						height: 44px;
+						font: 14px/26px "Microsoft YaHei";
+						color: #FFF;
+						cursor: pointer;
+						z-index: 10;
+					}
+				</style>
+				<div class="header-menu" style="width: 1200px;">
+						<img src="/img/logo.png" style="float:left;width: 57px;height: 40px;">
+						<a href="{:url('shop')}"><font style="font-size: 24px;color: #F88600;font-weight: bold; margin-left:6px;">购物车</font></a>
+						
+						<div class="ms-search1">
+							<form action="{:url('index/search')}" method ="post" >
+									<select id="edu" name="edu" style="height: 30px;width:63px;background-color: #F1F1F1;">
+								 <option value="0"><font style="font-size: 12px;color: #949494;">宝贝</font></option>
+								</select>
+								<input type="text" name="like" style="width:380px;height:30px;border:1px solid #fff;"/>
+								<input type="submit" value="搜索" style="float: right; color:#F2FAFF;background-color:#F88600;height:31px;width:70px;border: 0px;"></input>
+							</form>
+						</div>
+				
+				</div>
+
+			</article>
+
+		</header>
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+
+				<div class="cont-main" style="width: 1210px;">
+					<div style="margin-top: 20px;width: 1200px;">
+						<font style="font-size: 16px;color: #F4401C;font-weight: bold; margin-left:20px;border-bottom: 1px #F88600 solid;   padding-bottom: 14px;">全部商品 {$num}</font>
+						<font style="font-size: 16px;color: #060606; font-weight:bold;margin-left:20px;">|</font>
+						<font style="font-size: 16px;color: #060606; font-weight:bold;margin-left:20px;">降价商品 0</font>
+						<font style="font-size: 16px;color: #060606; font-weight:bold;margin-left:20px;">|</font>
+						<font style="font-size: 16px;color: #060606; font-weight:bold;margin-left:20px;">库存紧张  0</font>
+						<font style="font-size: 12px;color: #949494; font-weight:bold;margin-left:670px;">已选商品(不含运费)</font>
+						<input type="button" value="结算" style="float: right; color:#686868;background-color:#DEDEDE;height:20px;width:46px;border-style:solid;"></input>
+                        <hr style=" border-style:solid;width: 1200px;border-color:#DEDEDE;margin-top: 12px;"/> 
+          <input id="quanx" name="商品" type="checkbox" value="" style="margin-top:19px;" />
+                        <font style="font-size: 12px;color: #212121;margin-left: 20px;font-weight: bold;margin-top: -15px;display: flex;">全选</font> 
+                        <font style="font-size: 12px;color: #212121;margin-left: 100px;font-weight: bold;">商品信息</font> 
+                        <font style="font-size: 12px;color: #212121;margin-left: 400px;font-weight: bold;">单价(元)</font> 
+                        <font style="font-size: 12px;color: #212121;margin-left: 100px;font-weight: bold;">数量</font>
+                        <font style="font-size: 12px;color: #212121;margin-left: 100px;font-weight: bold;">金额(元)</font>
+                        <font style="font-size: 12px;color: #212121;margin-left: 100px;font-weight: bold;">操作</font>			
+                        <br />
+<form action="/index/index/payment" method="get">					
+		{volist  name="list" id="data" key="k"}				
+      
+					   <div style="border:1px solid #ccc;height: 150px;margin-top: 20px;">
+		
+		<input onclick = "demo()" class="checkbox" name="{$k}" type="checkbox" value="{$data.cid}" style="margin-top: 20px;margin-left: 20px;" />
+		<input type="hidden" name='sid' value="{$data.sid}" />
+		<input type="hidden" name='miaoshu' value="{$data.miaoshu}" />
+		<input type="hidden" name='upload' value="{$data.tupian}" />
+		<input type="hidden" name='price' value="{$data.price}" />
+	
+						<div >
+					    	<img src="\upload\{$data.tupian}" width="80" height="80" style="margin-left:40px; float: left;" />
+					    </div>	
+		<div>
+			<span style="margin-left:15px;float: left;"><font style="font-size: 12px;color: #1f1f1f; ">{$data.miaoshu}</font>
+				<font style="font-size: 12px;color: #949494;margin-left: 230px;TEXT-DECORATION: line-through; ">{$data.price+200}</font>
+				<br/> <font style="font-size: 12px;color: #1f1f1f; ">底料百搭调味料250克</font>
+				<div class="xyz" style="font-size: 12px;color: #1f1f1f;margin-left: 340px;font-weight: bold;  ">{$data.price}</div>
+				<br/>
+			<img src="/img/购物车/矢量智能对象.png" style="margin-left:0px; float: left;" />
+			<button style="color:F88600;background-color: #FCE6D1;border: 1px #F88600 solid;width:80px ;margin-left: 430px;">卖家促销</button>
+			</span>
+			<span style="margin-left:35px;float: left; ">
+				<!--点击增加数量或者减少数量-->
+				<input class="jian"  type="button" value="-" style=" color:#333333;height:30px;width:20px;border-style:solid;margin-left:30px;"></input>
+				<input class="num" type="text" value="1" style=" color:#333333;height:30px;width:30px;text-align:center;"></input>
+				<input onclick="demo()" class="jia" type="button" value="+" style=" color:#333333;height:30px;width:20px;border-style:solid;"></input>
+		
+		
+			</span>
+			<span style="margin-left:10px;float: left;">
+		  <div class ="abc"  style="font-size: 14px;color: #FD3C0D;margin-left: 85px;font-weight: bold; ">{$data.price}</div>
+			</span >
+			<span style="margin-left:85px; float: left;">
+			{if $data.ispay == 2}
+			<font style="font-size: 14px;color:green; ">已购买</font><br />
+			{else}
+			<font style="font-size: 14px;color:red; ">未付款</font><br />
+			{/if}
+			<font style="font-size: 14px;color: #1E1E1E; ">移入收藏夹</font>
+		  <br/> <a href="{:url('user/delshop')}?cid={$data.cid}"  style="font-size: 14px;color: #1E1E1E; ">删除</a>
+			</span>
+		</div>
+		</div>
+		{/volist}
+					  <br />
+                        
+					   
+					<div style="margin-top: 10px;background:#E5E5E5;height:50px;width:1200px;">
+							<table class="uiTable" >
+											<tr >
+										        <th  style="line-height:50px;" >
+	<input id="quanx1" name="" type="checkbox" value="" style="height: 14px;width: 14px;float: left;margin-top: 19px;"   />
+										        <font style="font-size: 12px;color: #333333;margin-left: 20px;font-weight: bold;display: flex;">全选</font> 
+												<th  style="line-height:50px;">
+				
+				<font id="quans" onclick="shan()" style="font-size: 12px;margin-left:50px;color: #333333; ">删除</font></th>
+												<th  style="line-height:50px;"><font style="font-size: 12px;margin-left:50px;color: #333333;  ">消除失效宝贝</font></th>
+												<th  style="line-height:50px;" ><font style="font-size: 12px;margin-left:50px; color: #333333;">移入收藏夹</font></th>
+												<th  style="line-height:50px; " ><font style="font-size: 12px;margin-left:50px;color: #333333; ">分享</font></th>
+												<th class="lastTd" colspan="2" style="line-height:50px; "><font style="font-size: 12px;margin-left:300px; ">已选商品</font><font id="total" style="font-size: 12px;color:#FD3C0D;">0</font><font style="font-size: 12px;color:#333333;">件</font></th>
+												<th  style="line-height:50px; " ><span style="font-size: 12px;margin-left:80px;color: #949494; ">合计(不含运费):</span>
+													</th>
+													<th  style="line-height:50px; " >
+		<div id="tot" style="font-size: 18px;color:#FD3C0D;">￥0</div></th>
+                                                <th  style="line-height:50px; " >
+									<input type="submit" value="结算"  id="jies" style="width:100px;font-size: 20px;margin-left:43px;color: #fff; "/>
+									
+									</th>
+											</tr>
+
+										</table>
+						</div>
+					
+				</div>
+</form>
+
+
+
+
+  
+
+			</div>
+		</div>
+		<div class="clear "></div>
+		<div class="ng-footer ">
+
+			<textarea class="footer-dom " id="footer-dom-02 ">
+			</textarea>
+			<div class="ng-fix-bar "></div>
+		</div>
+		<style type="text/css ">
+			.ng-footer {
+				height: 130px;
+				margin-top: 0;
+			}
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<!-- <script type="text/javascript " src="s/safe/ms_common.min.js "></script> -->
+	</body>
+
+</html>
+<script src="/shop/js/jquery-1.11.0.js"></script>
+<script>
+							var jian = document.getElementsByClassName('jian');
+							var num = document.getElementsByClassName('num');
+							var jia = document.getElementsByClassName('jia');
+							var je = document.getElementsByClassName('abc');
+							var danj = document.getElementsByClassName('xyz');
+							var checkbox = document.getElementsByClassName('checkbox');
+							var jies = document.getElementById('jies');
+							var tot = document.getElementById('tot');
+							var total = document.getElementById('total');
+							var totle = 0;
+							var hat = 0;
+							
+							for(var i=0;i<jia.length;i++){
+								jia[i].index = i;
+								
+								jia[i].onclick = function(){
+									var n = parseInt(num[this.index].value);
+									
+									num[this.index].value = n+1;
+									je[this.index].innerHTML = parseInt(num[this.index].value)*parseFloat(danj[this.index].innerHTML);
+									demo();
+								}
+							}
+							for(var i=0;i<jian.length;i++){
+								jian[i].index = i;
+								
+								jian[i].onclick = function(){
+									var n = parseInt(num[this.index].value);
+									
+									num[this.index].value = n-1;
+									if(num[this.index].value <=1){
+										num[this.index].value =1;
+									}
+									je[this.index].innerHTML = parseInt(num[this.index].value)*parseFloat(danj[this.index].innerHTML);
+									demo();
+								}
+							}
+							
+							//全选
+							var quanx = document.getElementById('quanx');
+							var quanx1 = document.getElementById('quanx1');
+							
+							
+							quanx.onclick = function(){
+								if(quanx.checked == true){
+									for(var i=0;i<checkbox.length;i++){
+										checkbox[i].checked = true;
+									}
+								}
+								if(quanx.checked == false){
+									for(var i=0;i<checkbox.length;i++){
+										checkbox[i].checked = false;
+									}
+								}
+								demo();
+							}
+							quanx1.onclick = function(){
+								if(quanx1.checked == true){
+									for(var i=0;i<checkbox.length;i++){
+										checkbox[i].checked = true;
+									}
+								}
+								if(quanx1.checked == false){
+									for(var i=0;i<checkbox.length;i++){
+										checkbox[i].checked = false;
+									}
+								}
+								demo();
+							}
+							//算总计
+							
+							function demo(){
+								for(var i=0;i<checkbox.length;i++){
+									checkbox[i].index = i;
+									if(checkbox[i].checked == true){
+										totle = totle + parseFloat(je[i].innerHTML);
+										hat = hat +1;
+									}
+								}
+								tot.innerHTML = totle;
+								total.innerHTML = hat;
+								totle=0;
+								hat =0;
+								bian();
+							}
+							//结算变色
+							
+							function bian(){
+								if(parseFloat(tot.innerHTML) > 0){
+									
+									jies.style.backgroundColor = 'rgb(255,60,60)';
+								}
+								if(parseFloat(tot.innerHTML) <= 0){
+									console.log(parseFloat(tot.innerHTML));
+									jies.style.backgroundColor = '';
+								}
+							}
+							//批量删除
+							function shan(){
+							var cid = '';
+							
+								for(var i=0;i<checkbox.length;i++){
+									if(checkbox[i].checked == true){
+										var c = checkbox[i].value;
+										cid += c + ',';
+									}
+								}
+								//var str = JSON.stringify(cid);
+								$.ajax({
+									url:"/index/index/shan",
+									method:'post',
+									data: {cid:cid},
+									success:function(msg){
+										var obj = JSON.parse(msg);
+										alert(obj.back);
+										location.reload();
+									}
+								});
+								
+							}
+							
+							
+							
+							
+							
+							
+							
+						
+						</script>

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="/css/splb.css" />
+		<link rel="stylesheet" type="text/css" href="/css/spxqstyle.css"/>
+		<style>
+			.txt{height:34px;}
+		</style>
+	</head>
+	<body>
+<!--**************top***************-->
+		<div id="head"></div>
+<!--*************logo****************-->
+		</div>
+		<div class="logo">
+			<div class="logo1">
+				<div class="logo2">
+					<a  style="display:block;float:left;margin-top:35px;margin-left:10px;width:100px;height:30px;" href="index.html">返回首页</a>
+					<div class="qiang">
+						
+					</div>
+					<div class="sou">
+					    	
+					</div>
+				</div>
+				<div class="logo3">
+					<ul>
+						<li><a class="new" href="#">最新折扣</a></li>
+						
+					</ul>
+					<div class="erweima">
+						<p>随时逛 及时抢</p>
+					</div>
+					<div class="qiandao">
+						<a href="{:url('user/shop')}">我的购物车</a>
+						<div class="qdk">
+							<span class="white"><a href="#">赚积分攻略</a></span>
+							<span class="grap">
+								<a class="jf" href="#">我的积分</a>
+								<a class="jfsc" href="#">积分商城</a>
+								<a href="#">新手任务，轻松起步!</a>
+							</span>
+							<p>QQ特享群:<span>390623218</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+<!--*******img********-->
+
+<div class="manjian0">
+	<p class="manjian"> 
+		<a href = "#">{$list['mlei']}</a>
+		<span>&gt;</span>
+	</p>
+</div>
+<!--*************goodarea****************-->
+<div class="goodarea">
+	<div class="goodarea1">
+		<div class="listleft">
+			<div class="box">
+			<div class="tb-booth tb-pic tb-s310">
+				<a href="#"><img  id="tu" src="/upload/{$list['upload']}" style="position:absolute;top:0px;left:0px;" rel="/upload/{$list['upload']}" class="jqzoom" /><img src="/upload/{$list['upload']}"  rel="/upload/{$list['upload']}" class="jqzoom" /></a>
+			</div>
+			<ul class="tb-thumb" id="thumblist">
+				<li class="tb-selected">
+					<div class="tb-pic tb-s40">
+						<a href="#"><img src="/upload/{$list['upload']}" width="57" height="58" mid="/upload/{$list['upload']}" big="/upload/{$list['upload']}"/></a>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+		</div>
+		<div class="listright">
+			<p class="name1">{$list['miaoshu']}</p>
+			<p class="money">
+				<span class="yuan">￥</span>
+				<b class="qian">{$list['price']}</b>
+				
+			</p>
+
+			<p class="place">
+				<span class="cx">配送至：</span>
+				<a class="Beijin" href="#"><span class="beijing">北京</span></a>
+				<a class="bottomjiao" href="#"></a>
+				<i class="mj">包邮</i> 
+				<b class="place1"> 	    
+						<a href="#">北京市</a>
+						<a href="#">天津市</a>
+						<a href="#">上海市</a>
+						<a href="#">重庆市</a>
+						<a href="#">河北省</a>
+						<a href="#">山西省</a>
+						<a href="#">内蒙古自治区</a>
+						<a href="#">辽宁省</a>
+						<a href="#">吉林省</a>
+						<a href="#">黑龙江省</a>
+						<a href="#">江苏省</a>
+						<a href="#">浙江省</a>
+						<a href="#">安徽省</a>
+						<a href="#">福建省</a>
+						<a href="#">江西省</a>
+						<a href="#">山东省</a>
+						<a href="#">河南省</a>
+						<a href="#">湖北省</a>
+						<a href="#">湖南省</a>
+						<a href="#">广东省</a>
+						<a href="#">广西壮族自治区</a>
+						<a href="#">海南省</a>
+						<a href="#">四川省</a>
+						<a href="#"> 贵州省</a>
+						<a href="#">云南省</a>
+						<a href="#">西藏自治区</a>
+						<a href="#">陕西省</a>
+						<a href="#">甘肃省</a>
+						<a href="#"> 青海省</a>
+						<a href="#">宁夏回族自治区</a>
+						<a href="#">新疆维吾尔自治区</a>
+				</b>
+			</p>
+			<div class="color">
+				<span class="cx">颜色：</span>
+				<ul class="ulcolor">
+				{volist name="color" id="data"}
+					<li title="{$data.color}" class="col">{$data.color}</li>
+				{/volist}
+				</ul>
+			</div>
+			<div class="cm">
+				<span class="cx">尺码：</span>
+			<div class="size">
+			{volist name="size" id="data"}
+				<p class="cmdx">{$data.size}码</p>
+			{/volist}
+			
+			</div>
+			</div>
+			<div class="sl">
+				<span class="cx">数量：</span>
+				<a class="jian jian1" href="###">-</a>
+				<span class="num">1</span>
+				<a href="###" class="add">+</a>
+				<span class="tishi">限购<i class="number">5</i>件</span>
+			</div>
+			<p class="gwd">
+				<a href="{:url('index/payment')}?upload={$list.upload}&miaoshu={$list.miaoshu}&mlei={$list.mlei}&price={$list.price}&sid={$list.sid}&uid={$uid}" style="width:100px;background:#ccc;" class="gwd1">立即购买</a>
+			</p>
+			<p class="gwd">
+				<a  onclick="shop()" class="gwd1">加入购物袋</a>
+			</p>
+			<p class="sanheyi">
+				<a class="sc1" onclick="cang()" >收藏</a>
+				<a class="fx"  href="#">分享</a>
+				<a class="jb" href="#">举报</a>
+			</p>
+		</div>
+	</div>
+</div>
+<!--**********xiangqing*********-->
+<div class="xiangqing">
+	<div class="xiangqing1">
+		<p class="img1">
+			<img src="/shop/img/advantage-bg-new.jpg"/>
+			<a class="dianname" href="#">迪逸姿女装特卖店</a>
+		</p>
+		<p class="xqsh">
+			<a class="news news1" href="#cs" >商品详情</a>
+			<a class="news" href="#wlysh" >物流与售后</a>
+			<a class="news" href="#xfbz" >消费保障</a>
+			<a class="news" href="#" ><img src="/shop/img/tu23.png"/>手机购买</a>
+		</p>
+		<p class="fdhh">
+			<a class="fdh" href="#ztks">整体款式</a>
+			<a class="fdh" href="#zgjx">细节做工</a>
+			<a class="fdh" href="#mtsp">模特实拍 </a>
+		</p>
+		<p class="csw" id="cs">
+			<span class="csgg" >参数规格</span>
+			<i class="thought">___________________________________________________________________________________________________________________________________________________________________</i>
+			<img src="/shop/img/imagee.gif" />
+		</p>
+		<p class="csw" id="ztks">
+			<span class="csgg">整体款式</span>
+			<i class="thought">___________________________________________________________________________________________________________________________________________________________________</i>
+			<img src="/shop/img/spxq19.jpg" />
+			<img src="/shop/img/spxq13.jpg" />
+			<img src="/shop/img/spxq1.jpg" />
+			<img src="/shop/img/spxq2.jpg" />
+			<img src="/shop/img/spxq14.jpg" />
+			<img src="/shop/img/spxq15.jpg" />
+			<img src="/shop/img/spxq16.jpg" />
+			<img src="/shop/img/spxq17.jpg" />
+		</p>
+		<p class="csw" id="zgjx">
+			<span class="csgg">做工精细</span>
+			<i class="thought">___________________________________________________________________________________________________________________________________________________________________</i>
+			<img src="/shop/img/spxq18.jpg" />
+			<img src="/shop/img/spxq26.jpg" />
+			<img src="/shop/img/spxq27.jpg" />
+		</p>
+		<p class="csw" id="mtsp">
+			<span class="csgg">模特实拍</span>
+			<i class="thought">___________________________________________________________________________________________________________________________________________________________________</i>
+			<img src="/shop/img/spxq28.jpg" />
+			<img src="/shop/img/spsq29.jpg" />
+			<img src="/shop/img/spsq30.jpg" />
+			<img src="/shop/img/spxq30.jpg" />
+			<img src="/shop/img/spxq31.jpg" />
+			<img src="/shop/img/spxq32.jpg" />
+			<img src="/shop/img/spxq33.jpg" />
+			<img src="/shop/img/s1.jpg" />
+			<img src="/shop/img/s2.jpg" />
+			<img src="/shop/img/s3.jpg" />
+			<img src="/shop/img/s4.jpg" />
+			<img src="/shop/img/s5.jpg" />
+			<img src="/shop/img/s6.jpg" />
+			<img src="/shop/img/s7.jpg" />
+			<img src="/shop/img/s8.jpg" />
+			<img src="/shop/img/s9.jpg" />
+			<img src="/shop/img/s10.jpg" />
+			
+		</p>
+		<div class="csw" id="wlysh">
+			<span class="csgg csgg1">物流与售后</span>
+			<i class="thought">___________________________________________________________________________________________________________________________________________________________________</i>
+			<p class="later toph"><span>发货物流：</span><b>圆通速递</b></p>
+			<p class="later"><span>配送范围：</span><b>全国（港澳台地区除外）。</b></p>
+			<p class="later"><span>运费说明：</span><b>全国包邮。</b></p>
+			<p class="later"><span>包裹跟踪：</span><b>您可在【我的订单】中查询物流跟踪信息。</b></p>
+			<p class="later bottomh"><span>确认收货：</span><b>当快件送达至您的收货地址后，卷皮将为您自动确认收货并将奖励积分发放至您的账户。</b></p>
+			<img src="/shop/img/renturn-process.jpg" />
+			<p class="later centerh"><span>售后服务承诺</span><br/><b>收到货后，如果因为主观原因不喜欢/不想要了，在不影响二次销售的情况下，签收后7天内，卷皮网为您提供七天无理由退货服务。如果未收到货或收到商品有质量问题，您可以在签收后15天内申请售后。</b></p>
+			<p class="later cen"><span>运费补贴政策</span><br/><b>当您的退货商品单价≥30元，卷皮将提供价值10元的退货运费补贴。（每个订单仅补贴一次优惠劵）</b></p>
+		</div>
+		<p class="csw position" id="xfbz">
+			<span class="csgg">消费保障</span>
+			<i class="thought">___________________________________________________________________________________________________________________________________________________________________</i>
+			<a class="xiaobao xiao" href="#"></a>
+			<a class="xiaobao xiao1" href="#"></a>
+			<a class="xiaobao xiao2" href="#"></a>
+			<a class="xiaobao xiao3" href="#"></a>
+			<a class="xiaobao xiao4" href="#"></a>
+			<a class="xiaobao xiao5" href="#"></a>
+			<a class="xiaobao xiao6" href="#"></a>
+			<img class=" tu block1" src="/shop/img/cp02_1.jpg" />
+			<img class="tu" src="/shop/img/cp02_2.jpg" />
+			<img class="tu" src="/shop/img/cp02_3.jpg" />
+			<img class="tu" src="/shop/img/cp02_4.jpg" />
+			<img class="tu" src="/shop/img/cp02_5.jpg" />
+			<img class="tu" src="/shop/img/cp02_6.jpg" />
+			<img  class="tu"src="/shop/img/cp02_7.jpg" />
+		</p>
+			
+	</div>
+</div>
+<!--***************youlike******************-->
+<div class="youlike">
+	<div class="youlike1">
+		<p class="blackandwhite"><img src="/shop/img/wangbxian.gif"/><span> 猜你喜欢 </span><img src="/shop/img/wangbxian.gif"/></p>
+		<div class="bw">
+			<div class="youlikeimg">
+				<img src="/shop/img/s11.jpg" />
+				<p class="money1"><span>￥</span>49</p>
+			</div>
+			<div class="youlikeimg">
+				<img src="/shop/img/s12.jpg" />
+				<p class="money1"><span>￥</span>45</p>
+			</div>
+			<div class="youlikeimg">
+				<img src="/shop/img/s13.jpg" />
+				<p class="money1"><span>￥</span>36</p>
+			</div>
+			<div class="youlikeimg">
+				<img src="/shop/img/s14.jpg" />
+				<p class="money1"><span>￥</span>29</p>
+			</div>
+			<div class="youlikeimg">
+				<img src="/shop/img/s15.jpg" />
+				<p class="money1"><span>￥</span>69</p>
+			</div>
+		</div>
+	</div>
+</div> 
+<!--**************sybottom****************-->	
+<div class="sybottom">
+	<div class="sybottom1">
+		<div class="bottomright">
+			<div class="bottomewm">
+				<p class="bottomyzm"></p>
+				<p class="ssgjsg">随时逛 及时抢</p>
+			</div>
+			<ul>
+				<h2>获取更新</h2>
+				<li><a href="#">iPhone/Android</a></li>
+				<li><a href="#">卷皮QQ空间</a></li>
+				<li><a href="#">卷皮新浪微博</a></li>
+				<li><a href="#">开放API</a></li>
+			</ul>
+			<ul>
+				<h2>商务合作</h2>
+				<li><a href="#">卖家免费报名</a></li>
+				<li><a href="#">商务合作</a></li>
+				<li><a href="#">廉政邮箱</a></li>
+				<li><a href="#">lianzheng@juanpi.com</a></li>
+			</ul>
+			<ul>
+				<h2>公司信息</h2>
+				<li><a href="#">关于卷皮</a></li>
+				<li><a href="#">媒体报道</a></li>
+				<li><a href="#">诚聘英才</a></li>
+				<li><a href="#">校园大使招募</a></li>
+			</ul>
+			<ul>
+				<h2>帮助中心</h2>
+				<li><a href="#">新手上路</a></li>
+				<li><a href="#">积分攻略</a></li>
+				<li><a href="#">网站地图</a></li>
+			</ul>
+			<a class="kfdh" href="#"></a>
+			<span class="kftime">周一至周日<br/>9:00-21:00</span>
+		</div>
+		<div class="dutted">
+			<span class="yqlj">友情链接：</span>
+			<div class="scroll-txt">
+				
+				<ul class="font-inner">
+				<li>
+					<a href="#">齐家装修</a>
+					<a href="#">普洱茶</a>
+					<a href="#">易登网</a>
+					<a href="#">中关村商城</a>
+					<a href="#">品牌鞋</a>
+					<a href="#">乐峰网优惠券</a>
+					<a href="#">精品折扣</a>
+					<a href="#">拍鞋网官网</a>
+				</li>
+				<li>
+					<a href="#">九块邮</a>
+					<a href="#">易迅优惠券</a>
+					<a href="#">中国鞋网</a>
+					<a href="#">中国鲜花礼品网</a>
+					<a href="#">钻石小鸟</a>
+					<a href="#">品牌名包</a>
+					<a href="#">网上购物</a>
+					<a href="#">中国品牌网</a>
+					<a href="#">家具网</a>
+					<a href="#">国画</a>
+				</li>
+			</ul>
+		</div>
+		<a class="more" href="#">更多&gt;&gt;</a>
+		</div>
+		<p class="copy">武汉奇米网络科技有限公司 鄂ICP备10209250号 | ICP许可证号：鄂B1-20150109 | 食品流通许可证 SP4201991510041888　　Copyright ? 2010 -2016 JuanPi.com All Rights Reserved</p>
+		<div class="tubiao">
+			<a class="anquanbiao1" href="#"></a>
+			<a class="anquanbiao2" href="#"></a>
+			<a class="anquanbiao3" href="#"></a>
+			<a class="anquanbiao4" href="#"></a>
+		</div>
+	</div>
+</div>	
+<!--****************rightbox****************-->
+<div class="rightbox">
+	<div>
+		<p class="khhead"><a class="akhhead" href="#"></a></p>
+		<div class="khbox">
+			<a class="head" href="#"></a>
+			<span class="rightcha" href="#"><img src="/shop/img/dl2.gif"/></span>
+			{if empty($username)}
+			<p class="mmd">
+				快来<a class="rightdl" href="#">登录</a>吧！么么哒!
+			</p>
+			{else /}
+			<p class="mmd">
+				欢迎<a class="rightdl" href="#">{$username}</a>么么哒!
+			</p>
+
+			{/if}
+		</div>
+		<div class="shop">
+			<p class="shop0">
+				<a class="shop1"  href="{:url('user/shop')}"></a>
+				<!--<a href="#" class="list1"><span>0</span></a>-->
+			</p>
+		</div>
+		<div class="lovesc">
+			<a class="lovesc1" href="{:url('user/cang')}"></a>
+			<p class="mysc">
+				我的收藏
+			</p>
+		</div>
+
+		<div class="breaktop">
+			<a class="breaktop1" href="#"></a>
+			<p class="breaktop2">
+				返回顶部
+			</p>
+		</div>
+	</div>
+	
+</div>	
+	<div class="xidinghe">
+		<div class="xidinghe1">
+			<p class="xqsh">
+			<a class="news xqq news1" href="#cs" >商品详情</a>
+			<a class="news xqq" href="#wlysh" >物流与售后</a>
+			<a class="news xqq" href="#xfbz" >消费保障</a>
+			<a class="news xqq" href="#" ><img src="/shop/img/tu23.png"/>手机购买</a>
+				<span class="yy" >￥</span>
+				<b class="jiaj" >{$list['price']}</b>
+				<i class="byb">/包邮</i>
+				<a class="gwd1 ggd" href="#">加入购物袋</a>
+			</p>
+			<p class="fdhh fdhh1">
+				<a class="fdh" href="#ztks">整体款式</a>
+				<a class="fdh" href="#zgjx">细节做工</a>
+				<a class="fdh" href="#mtsp">模特实拍 </a>
+			</p>
+		</div>
+	</div>
+	<script src="/shop/js/jquery-1.11.0.js"></script>
+	<script src="/shop/js/spxqjs.js"></script>
+	<script type="text/javascript" src="/shop/js/zsplb.js"></script>
+	<script type="text/javascript" src="/shop/js/jquery.page.js" ></script>
+	<script src="/shop/js/ssplb.js"></script>
+	<script src="/shop/js/common.js"></script>
+	<script src="/shop/js/fangdajing.js"></script>
+	</body>
+</html>
+
+
+<script>
+		var proColor = "";
+		var proSize = "";
+		var proImg = $('#tu').attr('src');
+		
+		$(".ulcolor>li").on("click",function(){
+			proColor = $(this).text();
+		});
+		$(".size>p").on("click",function(){
+			proSize = $(this).text();
+		});
+	function shop(){
+			
+			if(proColor == ""){
+				alert("必须选择一种颜色");
+				
+			}else if(proSize == ""){
+				alert("必须选择尺寸大小");
+				
+			}else{
+				var proName = $(".name1").text();
+				var proNum = $(".num").text();
+				var proPrice = $(".qian").text();
+				var proYuanjia = $(".yuanjia").text();
+				var pro = new Object();
+				pro.proName = proName;
+				pro.proImg = proImg;
+				pro.proPrice = proPrice;
+				pro.proSize = proSize;
+				pro.proColor = proColor;
+				pro.proNum = proNum;
+				pro.uid = "{$list['uid']}";
+				pro.sid = "{$list['sid']}";
+				var proYuanjia = proYuanjia;
+				var proStr = JSON.stringify(pro);
+				console.log(proStr);
+				
+				$.ajax ({
+					type:"post",
+					url:"{:url('index/screate')}",
+					cacha:false,
+					data:{a:proStr},
+					dataType:'json',
+					success:function(data)
+					{
+						$('#tu').animate({
+							width:'50px',
+							height:'50px',
+							left:'1080px',
+							top:'-30px',
+							opacity:'0'
+						},3000);
+					},
+					
+				});
+			} 	
+	}
+	
+	function cang(){
+	
+		$.ajax ({
+			type:"get",
+			url:"/index/index/createcang?uid={$list['uid']}&sid={$list['sid']}",
+			cacha:false,
+			dataType:'json',
+			success:function(data)
+			{
+				alert(data[1]);
+			}
+		});
+	}
+</script>

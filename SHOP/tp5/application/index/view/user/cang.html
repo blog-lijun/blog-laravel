@@ -1,0 +1,353 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+
+				<div class="cont-main"  style="width: 1210px;">
+					<div style="margin-top: 20px;width: 1200px;">
+						<a href="{:url('user/cang')}"><font style="font-size: 16px;color: #F88600;font-weight: bold; margin-left:30px;">全部宝贝{$num}</font></a>
+						<font style="font-size: 16px;color: #333333; font-weight:bold;margin-left:61px;"><a href="{:url('user/cang')}?page=4">降价{$pnum}</a></font>
+						<a href="{:url('user/cang')}?page=5"><font style="font-size: 16px;color: #333333; font-weight:bold;margin-left:40px;">失效{$snum}</font></a>
+						
+						<input onclick="guanli()" type="button" value="" style=" height:34px;width:80px;
+border-color:#f5f5f5;background:#f5f5f5;border-style:solid;margin-left:360px;"></input>
+						<input onclick="plguanli()" type="button" value="批量管理" style=" color:#333333;height:34px;width:80px;background:#ffffff;border-color:#EDEDED;border-style:solid;margin-left:8px;"></input>
+				
+						<div style="float: right; display: block;">
+							<form action="{:url('user/searchcang')}" method="post">
+								<input  type="text" name="content" placeholder="宝贝搜索" style=" float: right;color:#333333;height:auto;margin-left: 10px;float: left;padding: 5px;">
+								<div style="float:left;margin-right:10px;text-align: center;width: 20px;height: 20px;">
+								<input type="hidden" name="page" value="6" />
+								<input type="submit" value="搜索" style="width:50px;height:25px;"/></div>
+							</form>
+						</div>
+				
+					</div>
+					<div style="margin-top: 10px;height: 600px;width: 1200px; border:1px solid #EDEDED">
+						<img src="/img/frigidere.png" style="margin-left:10px;margin-top: 25px;margin-bottom: -3px;" />
+						<font style="font-size: 12px;color: #8e8e8e;font-weight: bold; margin-top:25px;"><a href="{:url('user/cang')}" style="color:#aaa;" >全部宝贝</a></font>
+						<img src="/img/iphone.png" style="margin-left:80px;margin-top: 25px;margin-bottom: -3px;"  />
+						<font style="font-size: 12px;color: #8e8e8e;font-weight: bold; margin-top:25px;margin-left: 10px;"><a href="{:url('user/cang')}?page=1" style="color:#aaa;" >男装 {$totnan}</a></font>
+						<img src="/img/tennis-ball.png" style="margin-left:80px;margin-top: 25px;margin-bottom: -3px;" />
+						<font style="font-size: 12px;color: #8e8e8e;font-weight: bold; margin-top:25px;margin-left: 10px;"><a href="{:url('user/cang')}?page=2" style="color:#aaa;" >女装 {$totnv}</a></font>
+						<img src="/img/muffin.png" style="margin-left:80px;margin-top: 25px;margin-bottom: -3px;" />
+						
+						<font style="font-size: 12px;color: #8e8e8e;font-weight: bold; margin-top:25px;margin-left: 10px;"><a href="{:url('user/cang')}?page=3" style="color:#aaa;" >其他 {$totot}</a></font>
+
+						<img src="/img/钉子图标.png" style="float: right;height: 25px;" id="loginimg">
+						<hr style=" border-style:solid;width:1200px;border-color:#f8c3b1;margin-top: 25px;"> </hr>
+	{if empty($page)}
+	<form action="{:url('user/delcang')}" method="post">
+		{volist name="list" id="data" key="k"}		
+			
+		  <div style="float: left;padding: 10px;margin-left: 10px;">
+			<input type="checkbox" name="{$k}" value="{$data.idcang}" style="magin-left:10px;magin-top:100px;display:block;display:none;" />
+			<img src="/upload/{$data.tupian}" style="min-width: 150px;" width="150" height="150" />
+			<br />
+			<span style="color: #686868;margin-left:23px;">{$data.miaoshu|substr=0,22}...</span>
+			<br />
+			<span style="color: #686868;margin-top: 23px;display:block;margin-left: 20px;">
+				<font style="font-size:14px;color:#fb3201; font-weight: bold;display:block;">
+				{volist name="sdata" id="sda" }
+					{if $data.sid == $sda.sid}
+						<p style="color:#ccc;margin-left:-20px;">该宝贝已失效</p>
+					{else}
+						{volist name="da" id="pdata" key="key" }
+								{if  $data.sid == $pdata.sid}
+									￥{$pdata.price}<p style="float:right;text-decoration:line-through;color:#ccc;">原价￥{$data.price}    </p> 
+								{else}
+									￥{$data.price}
+								{/if}
+						{/volist}
+						
+					{/if}
+				{/volist}
+				</font></span>
+		</div>
+		
+		
+		{/volist}
+	
+		<input type="submit" value="批量删除" style="width:50px;height:25px;display:none;color:red;"/> 
+		
+		</form>
+	{/if}
+	{if $page == 1}
+	<form action="{:url('user/delcang')}" method="post">
+		{volist name="nanlist" id="data" key="k"}		
+			
+		  <div style="float: left;padding: 10px;margin-left: 10px;">
+			<input type="checkbox" name="{$k}" value="{$data.idcang}" style="magin-left:10px;magin-top:100px;display:block;display:none;" />
+			<img src="/upload/{$data.tupian}" style="min-width: 150px;" width="150" height="150" />
+			<br />
+			<span style="color: #686868;margin-left:23px;">{$data.miaoshu}...</span>
+			<br />
+			<span style="color: #686868;margin-top: 23px;display:block;margin-left: 50px;">
+				<font style="font-size:14px;color:#fb3201; font-weight: bold;">{volist name="sdata" id="sda" }
+					{if $data.sid == $sda.sid}
+						<p style="color:#ccc;margin-left:-30px;">该宝贝已失效</p>
+					{else}
+						{volist name="da" id="pdata" key="key" }
+								{if  $data.sid == $pdata.sid}
+									￥{$pdata.price}<p style="float:right;text-decoration:line-through;color:#ccc;">原价￥{$data.price}    </p> 
+								{else}
+									￥{$data.price}
+								{/if}
+						{/volist}
+						
+					{/if}
+				{/volist}</font></span>
+		</div>
+		
+		
+		{/volist}
+	
+		<input type="submit" value="批量删除" style="width:50px;height:25px;display:none;color:red;"/> 
+		
+		</form>
+	{/if}
+	{if $page == 2}
+	<form action="{:url('user/delcang')}" method="post">
+		{volist name="nvlist" id="data" key="k"}		
+			
+		  <div style="float: left;padding: 10px;margin-left: 10px;">
+			<input type="checkbox" name="{$k}" value="{$data.idcang}" style="magin-left:10px;magin-top:100px;display:block;display:none;" />
+			<img src="/upload/{$data.tupian}" style="min-width: 150px;" width="150" height="150" />
+			<br />
+			<span style="color: #686868;margin-left:23px;">{$data.miaoshu}...</span>
+			<br />
+			<span style="color: #686868;margin-top: 23px;display:block;margin-left: 50px;">
+				<font style="font-size:14px;color:#fb3201; font-weight: bold;">
+				{volist name="sdata" id="sda" }
+					{if $data.sid == $sda.sid}
+						<p style="color:#ccc;margin-left:-30px;">该宝贝已失效</p>
+					{else}
+						{volist name="da" id="pdata" key="key" }
+								{if  $data.sid == $pdata.sid}
+									￥{$pdata.price}<p style="float:right;text-decoration:line-through;color:#ccc;">原价￥{$data.price}    </p> 
+								{else}
+									￥{$data.price}
+								{/if}
+						{/volist}
+						
+					{/if}
+				{/volist}</font></span>
+		</div>
+		
+		
+		{/volist}
+	
+		<input type="submit" value="批量删除" style="width:50px;height:25px;display:none;color:red;"/> 
+		
+		</form>
+	{/if}
+	{if $page == 3}
+	<form action="{:url('user/delcang')}" method="post">
+		{volist name="otlist" id="data" key="k"}		
+			
+		  <div style="float: left;padding: 10px;margin-left: 10px;">
+			<input type="checkbox" name="{$k}" value="{$data.idcang}" style="magin-left:10px;magin-top:100px;display:block;display:none;" />
+			<img src="/upload/{$data.tupian}" style="min-width: 150px;" width="150" height="150" />
+			<br />
+			<span style="color: #686868;margin-left:23px;">{$data.miaoshu}...</span>
+			<br />
+			<span style="color: #686868;margin-top: 23px;display:block;margin-left: 50px;">
+				<font style="font-size:14px;color:#fb3201; font-weight: bold;">
+				{volist name="sdata" id="sda" }
+					{if $data.sid == $sda.sid}
+						<p style="color:#ccc;margin-left:-30px;">该宝贝已失效</p>
+					{else}
+						{volist name="da" id="pdata" key="key" }
+								{if  $data.sid == $pdata.sid}
+									￥{$pdata.price}<p style="float:right;text-decoration:line-through;color:#ccc;">原价￥{$data.price}    </p> 
+								{else}
+									￥{$data.price}
+								{/if}
+						{/volist}
+						
+					{/if}
+				{/volist}</font></span>
+		</div>
+		
+		
+		{/volist}
+	
+		<input type="submit" value="批量删除" style="width:50px;height:25px;display:none;color:red;"/> 
+		
+		</form>
+	{/if}
+	{if $page == 4}
+	<form action="{:url('user/delcang')}" method="post">
+		{volist name="plist" id="data" key="k"}		
+			
+		  <div style="float: left;padding: 10px;margin-left: 10px;">
+			<input type="checkbox" name="{$k}" value="{$data.idcang}" style="magin-left:10px;magin-top:100px;display:block;display:none;" />
+			<img src="/upload/{$data.tupian}" style="min-width: 150px;" width="150" height="150" />
+			<br />
+			<span style="color: #686868;margin-left:23px;">{$data.miaoshu}...</span>
+			<br />
+			<span style="color: #686868;margin-top: 23px;display:block;margin-left: 50px;">
+				<font style="font-size:14px;color:#fb3201; font-weight: bold;">{volist name="sdata" id="sda" }
+					{if $data.sid == $sda.sid}
+						<p style="color:#ccc;margin-left:-30px;">该宝贝已失效</p>
+					{else}
+						{volist name="da" id="pdata" key="key" }
+								{if  $data.sid == $pdata.sid}
+									￥{$pdata.price}<p style="float:right;text-decoration:line-through;color:#ccc;">原价￥{$data.price}    </p> 
+								{else}
+									￥{$data.price}
+								{/if}
+						{/volist}
+						
+					{/if}
+				{/volist}</font></span>
+		</div>
+		
+		
+		{/volist}
+	
+		<input type="submit" value="批量删除" style="width:50px;height:25px;display:none;color:red;"/> 
+		
+		</form>
+	{/if}
+	{if $page == 5}
+	<form action="{:url('user/delcang')}" method="post">
+		{volist name="slist" id="data" key="k"}		
+			
+		  <div style="float: left;padding: 10px;margin-left: 10px;">
+			<input type="checkbox" name="{$k}" value="{$data.idcang}" style="magin-left:10px;magin-top:100px;display:block;display:none;" />
+			<img src="/upload/{$data.tupian}" style="min-width: 150px;" width="150" height="150" />
+			<br />
+			<span style="color: #686868;margin-left:23px;">{$data.miaoshu}...</span>
+			<br />
+			<span style="color: #686868;margin-top: 23px;display:block;margin-left: 50px;">
+				<font style="font-size:14px;color:#fb3201; font-weight: bold;">{volist name="sdata" id="sda" }
+					{if $data.sid == $sda.sid}
+						<p style="color:#ccc;margin-left:-30px;">该宝贝已失效</p>
+					{else}
+						{volist name="da" id="pdata" key="key" }
+								{if  $data.sid == $pdata.sid}
+									￥{$pdata.price}<p style="float:right;text-decoration:line-through;color:#ccc;">原价￥{$data.price}    </p> 
+								{else}
+									￥{$data.price}
+								{/if}
+						{/volist}
+						
+					{/if}
+				{/volist}</font></span>
+		</div>
+		
+		
+		{/volist}
+	
+		<input type="submit" value="批量删除" style="width:50px;height:25px;display:none;color:red;"/> 
+		
+		</form>
+	{/if}
+	{if $page == 6}
+	<form action="{:url('user/delcang')}" method="post">
+		{volist name="searchlist" id="data" key="k"}		
+			
+		  <div style="float: left;padding: 10px;margin-left: 10px;">
+			<input type="checkbox" name="{$k}" value="{$data.idcang}" style="magin-left:10px;magin-top:100px;display:block;display:none;" />
+			<img src="/upload/{$data.tupian}" style="min-width: 150px;" width="150" height="150" />
+			<br />
+			<span style="color: #686868;margin-left:23px;">{$data.miaoshu}...</span>
+			<br />
+			<span style="color: #686868;margin-top: 23px;display:block;margin-left: 50px;">
+				<font style="font-size:14px;color:#fb3201; font-weight: bold;">{volist name="sdata" id="sda" }
+					{if $data.sid == $sda.sid}
+						<p style="color:#ccc;margin-left:-30px;">该宝贝已失效</p>
+					{else}
+						{volist name="da" id="pdata" key="key" }
+								{if  $data.sid == $pdata.sid}
+									￥{$pdata.price}<p style="float:right;text-decoration:line-through;color:#ccc;">原价￥{$data.price}    </p> 
+								{else}
+									￥{$data.price}
+								{/if}
+						{/volist}
+						
+					{/if}
+				{/volist}</font></span>
+		</div>
+		
+		
+		{/volist}
+	
+		<input type="submit" value="批量删除" style="width:50px;height:25px;display:none;color:red;"/> 
+		
+		</form>
+	{/if}
+		<script>
+			function plguanli()
+			{
+				if($('input[type=checkbox]').css('display') == 'none'){
+					$('input[type=checkbox]').css({'magin-left':'10px','magin-top':'100px','display':'block'});
+					$('input[type=submit]').css({'color':'red','display':'block'});
+				}else{
+					$('input[type=checkbox]').css({'magin-left':'10px','magin-top':'100px','display':'none'});
+					$('input[type=submit]').css({'color':'red','display':'none'});
+				}
+			
+			}
+		
+		</script>
+				</div>
+				
+
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="clear "></div>
+		<div class="ng-footer ">
+
+			<textarea class="footer-dom " id="footer-dom-02 ">
+			</textarea>
+			<div class="ng-fix-bar "></div>
+		</div>
+		<style type="text/css ">
+			.ng-footer {
+				height: 130px;
+				margin-top: 0;
+			}
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript " src="js/safe/ms_common.min.js "></script>
+	</body>
+
+</html>

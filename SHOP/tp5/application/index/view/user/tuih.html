@@ -1,0 +1,195 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-side">
+					<div class="side-neck" style="margin-top: 20px;">
+						<i></i>
+					</div>
+					<div class="ms-side" style="margin-top: 20px;">
+						<article class="side-menu side-menu-off">
+							<dl class="side-menu-tree" style="padding-left: 50px;">
+								<dt><img src="/img/左侧/我的购物车.png"  style="margin-right: 10px;margin-left: -20px;"/>我的购物车</dt>
+								<dt><img src="/img/左侧/file.png"  style="margin-right: 10px;margin-left: -20px;"/>订单管理</dt>
+								<dd>
+									<a href="{:url('dingd?zhuangtai=0')}">我的订单</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('cang')}">我的收藏</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('pingj?ping=0')}">我的评价</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('zuj')}" >我的足迹</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/我的买啦.png"  style="margin-right: 10px;margin-left: -20px;"/>我的买啦</dt>
+								
+								<dd>
+									<a href="{:url('qianb')}">我的钱包</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('tix')}">我的银行卡</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/v-card-3.png"  style="margin-right: 10px;margin-left: -20px;"/>售后服务</dt>
+								<dd>
+									<a href="{:url('tuih?sousuo=0')}">退换货</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('yij')}">意见/投诉</a>
+
+								</dd>
+							</dl>
+
+
+							<a ison="on" class="switch-side-menu icon-up-side"><i></i></a>
+						</article>
+					</div>
+				</div>
+				<div class="cont-main">
+					<div class="main-wrap mt15" style="margin-top: 40px;">
+						<div class="server-wrapper">
+							<div class="server-tab" style="margin-top: 30px;">
+
+								<input type="button" value="退换货申请" style=" font-weight:bold;color:#F88600;height:34px;width:110px;background:#ffffff;border:1px #F8C3B1 solid; border-bottom:0px;margin-left:10px;"></input>
+								
+								<hr style="     border: 0px;border-top: 1px #f8c3b1 solid;"> </hr>
+								<div class="tabcontent" style="margin-top: 30px;">
+									<div class=" tabcon ">
+										<div class="selected ">
+											<div class="selBox ">
+												<font style="font-size: 12px;color: #6d6d6d; margin-left:10px;">订单编号:</font> <input class="bianhao" style="margin-left:13px;height:30px;width:190px; " type="text " id="orderId " class="sel-input " value=" " placeholder=" ">
+				                             <a   name="query" class="uiBtn b4"><span><strong>搜索</strong></span></a>
+				                             <script>
+				                             $(function(){
+				                             	$('.b4').click(function(){
+
+				                             		var bianhao = $('.bianhao').val();
+
+				                             			$.ajax({
+															url:'/index/user/tuih',
+															method:'post',
+															data:{"bianhao":bianhao},
+															dataType:'json',
+															success:
+															function(data){
+																$('html').html(data)
+															}
+														});
+
+
+				                             	})
+
+				                             })
+
+				                             </script>
+												
+											</div>
+										</div>
+									</div>
+
+								</div>
+
+								<div style="margin-top: 30px;background:#f3f5fa;height:50px;width:100%;">
+										<table class="uiTable" id="return_table" >
+											<tr >
+												<th  style="line-height:50px;"><font style="font-size: 14px;margin-left:39px; ">商品名称</font></th>
+												<th  style="line-height:50px;"><font style="font-size: 14px;margin-left:255px; ">订单号</font></th>
+											
+												<th  style="line-height:50px; " ><font style="font-size: 14px;margin-left:114px; ">下单时间</font></th>
+												<th class="lastTd" colspan="2" style="line-height:50px; "><font style="font-size: 14px;margin-left:100px; ">操作</font></th>
+											</tr>
+											{volist name="tui" id="data"}
+											<tr>
+												<th  style="line-height:50px;"><font style="font-size: 14px;margin-left:39px;font-weight:normal; ">{$data.username}</font></th>
+												<th  style="line-height:50px;"><font style="font-size: 14px;margin-left:255px;font-weight:normal; ">{$data.bianhao}</font></th>
+												<th  style="line-height:50px;" ><font style="font-size: 14px;margin-left:148px;font-weight:normal; ">{$data.create_time}</font></th>
+												
+												<th class="lastTd" colspan="2" style="line-height:50px; "><font style="font-size: 14px;margin-left:100px;font-weight:normal; ">退款中</font></th>
+
+											</tr>
+											{/volist}
+											{volist name="tui1" id="data"}
+											<tr>
+												<th  style="line-height:50px;"><font style="font-size: 14px;margin-left:39px;font-weight:normal; ">{$data.username}</font></th>
+												<th  style="line-height:50px;"><font style="font-size: 14px;margin-left:255px;font-weight:normal; ">{$data.bianhao}</font></th>
+												<th  style="line-height:50px;" ><font style="font-size: 14px;margin-left:148px;font-weight:normal; ">{$data.create_time}</font></th>
+												
+												<th class="lastTd" colspan="2" style="line-height:50px; "><font style="font-size: 14px;margin-left:100px;font-weight:normal; ">已退款</font></th>
+
+											</tr>
+											{/volist}
+										</table>
+								</div>
+							</div>
+							<div class="no-product hide ">
+								
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="clear "></div>
+		<div class="ng-footer ">
+
+			<textarea class="footer-dom " id="footer-dom-02 ">
+			</textarea>
+			<div class="ng-fix-bar "></div>
+		</div>
+		<style type="text/css ">
+			.ng-footer {
+				height: 130px;
+				margin-top: 0;
+			}
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript " src="js/safe/ms_common.min.js "></script>
+	</body>
+
+</html>

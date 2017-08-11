@@ -1,0 +1,233 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-side">
+					<div class="side-neck" style="margin-top: 20px;">
+						<i></i>
+					</div>
+					<div class="ms-side" style="margin-top: 20px;">
+						<article class="side-menu side-menu-off">
+							<dl class="side-menu-tree" style="padding-left: 50px;">
+								<dt><img src="/img/左侧/我的购物车.png"  style="margin-right: 10px;margin-left: -20px;"/>我的购物车</dt>
+								<dt><img src="/img/左侧/file.png"  style="margin-right: 10px;margin-left: -20px;"/>订单管理</dt>
+								<dd>
+									<a href="{:url('dingd?zhuangtai=0')}">我的订单</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('cang')}">我的收藏</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('pingj?ping=0')}">我的评价</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('zuj')}" >我的足迹</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/我的买啦.png"  style="margin-right: 10px;margin-left: -20px;"/>我的买啦</dt>
+								
+								<dd>
+									<a href="{:url('qianb')}">我的钱包</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('tix')}">我的银行卡</a>
+
+								</dd>
+								
+								<dt><img src="/img/左侧/v-card-3.png"  style="margin-right: 10px;margin-left: -20px;"/>售后服务</dt>
+								<dd>
+									<a href="{:url('tuih?sousuo=0')}">退换货</a>
+
+								</dd>
+								<dd>
+									<a href="{:url('yij')}">意见/投诉</a>
+
+								</dd>
+							</dl>
+
+							<a ison="on" class="switch-side-menu icon-up-side"><i></i></a>
+						</article>
+					</div>
+				</div>
+				<div class="cont-main">
+					<div class="main-wrap mt15" style="border: 0px;">
+						<div class="server-wrapper">
+							<div class="server-tab" style="margin-top: 20px;">
+								
+								<ul class="sui-nav nav-tabs" style="width: 1100px;">
+								  <li class="active"><a data-toggle="tab">提现账户</a></li>
+								  <li class="add"><a data-toggle="tab">添加账户</a></li>
+								</ul>
+							<div class="tab-content">
+								<div id="index" active" style="width: 1000px ;padding-left: 100px;" >
+								 {volist name="yinghang" id="data"}
+								  <div style="display: inline-block;width: 700px;margin: 0 auto;margin-top:55px;height: 40px;border: 1px #ccc solid;padding-top: 17px;">
+								  	
+								  <dl style="float: left;font-size: 12px;color: #949494;    margin-right: 10px;">{$data.yinghang}.</dl>
+								  	<dl style="font-size: 12px;color: #949494;margin-left: 10px">卡号：{$data.kahao}. 户名：{$truename}</dl>
+								  </div>
+								  <div style="display: inline-block;" >
+								  <span yinghang="{$data.yid}">
+								  <a href=""><input type="button" yinghang="{$data.yid}"  value="解除绑定"  style="width:70px;float:left;margin-left:25px;border: 0px;padding:5px;background-color: #F2873B;color: #fff;border-radius: 5px;margin-bottom: -10px;"/></a>
+								  </span>
+								 </div>						  
+								
+								<script>
+									$(function(){
+										$("span[yinghang='{$data.yid}']").click(function(){
+												$.ajax({
+														url:'/index/user/shanchuyinghang?yid={$data.yid}',
+														method:'post',
+														dataType:'json',
+														success:
+														function(data){
+															
+														}
+													});
+
+
+										})
+
+
+									})
+
+
+								</script>
+								{/volist}
+							 	</div>
+							<div id="profile" style="padding-left: 150px;font-size: 14px;color: #686868;display:none;">
+								  	<div style="margin-top: 42px;">
+								  		<label >会员编号：</label><span>{$uid}</span>
+								  	</div>
+								  	<div style="margin-top: 20px;">
+								  		<label style="margin-left: 28px;">户名：</label><span style="margin-left: 20px;">{$truename}</span><span style="color: #F88600;margin-left: 20px;">您身份证实名认证的的姓名</span>
+								  	</div>
+								 <form action="{:url('/index/user/addyinghang')}" method="post">
+								  	<div style="margin-top: 20px;">
+								  		<label style="margin-left: 28px;">省份：</label>
+								  		<input type="text" name="sheng" style="margin-left:20px;padding: 10px;width: 250px;color: #949494;font-size: 12px;" />
+								  			请填写省份
+								  		
+								  	</div>
+								  	
+								  	<div style="margin-top: 20px;">
+								  		<label style="margin-left: 28px;">城市：</label>
+								  		<input type="text" name="shi" style="margin-left:20px;padding: 10px;width: 250px;color: #949494;font-size: 12px;">
+								  			请填写城市
+								  		
+								  	</div>
+								  	
+								  	<div style="margin-top: 20px;">
+								  		<label>开户银行：</label>
+								  		<input type="text" name="yinghang" style="margin-left:20px;padding: 10px;width: 500px;color: #949494;font-size: 12px;">
+								  			请填写银行
+								  		
+								  	</div>
+								  	<div style="margin-top: 20px;">
+								  		<label>银行卡号：</label>
+								  		<input name="kahao" type="text" style="width: 500px;padding: 10px;margin-left:20px;" />
+								  	</div>
+								  	
+								  	<div style="margin-top: 20px;">
+								  		<label>开户地址：</label>
+								  		<input name="dizhi" type="text" style="width: 500px;padding: 10px;margin-left:20px;" />
+								  	</div>
+								  	<div style="margin-top: 20px;">
+								  		<p style="color: #f81700;margin-left: 95px;">如XX省XX市XX银行分行或支行，详细以当地开户行地址为准</p>
+								  	</div>
+								  	
+								  	<div style="margin-top: 20px;">
+								  		<input type="submit" value="提交"  style="margin-left:150px;margin-top:50px;border:0px;width: 160px;height: 26px;color: #ffffff;font-size: 14px;background-color: #F88600;" />
+								  	</div>
+								  	</form>
+								  	
+								</div>
+
+								<script>
+									$(function(){
+										$('.add').click(function(){
+											$('#index').css('display','none');
+											$('#profile').css('display','block');
+
+										})
+
+										$('.active').click(function(){
+											$('#index').css('display','block');
+											$('#profile').css('display','none');
+
+										})
+
+
+									})
+
+
+
+								</script>
+
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<div class="clear "></div>
+		<div class="ng-footer ">
+
+			<textarea class="footer-dom " id="footer-dom-02 ">
+			</textarea>
+			<div class="ng-fix-bar "></div>
+		</div>
+		<style type="text/css ">
+
+			.ng-footer {
+				height: 130px;
+				margin-top: 0;
+			}
+		
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript " src="js/safe/ms_common.min.js "></script>
+	</body>
+
+</html>

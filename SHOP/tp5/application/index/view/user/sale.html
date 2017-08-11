@@ -1,0 +1,501 @@
+{layout name="newlayout"}
+		<div id="ms-center" class="personal-member">
+			<div class="cont">
+				<div class="cont-side">
+					<div class="side-neck" style="margin-top: 20px;">
+						<i></i>
+					</div>
+					<div class="ms-side" style="margin-top: 20px;">
+						<article class="side-menu side-menu-off">
+							<dl class="side-menu-tree" style="padding-left: 50px;">
+								<dt><img src="/img/左侧/我的购物车.png"  style="margin-right: 10px;margin-left: -20px;"/>我的店铺</dt>
+								<dt><img src="/img/左侧/file.png"  style="margin-right: 10px;margin-left: -20px;"/>店铺管理</dt>
+								<dd>
+									<a href="{:url('sale')}">店铺信息</a>
+
+								</dd>
+								<dd>
+									<a id = "shangj" onclick="demo()">商品上架</a>
+
+								</dd>
+								<script >
+									function demo(){
+										var main = document.getElementById('main');
+										var sj = document.getElementById('sj');
+										main.style.display = 'none';
+										sj.style.display = 'block';
+									}
+									
+								</script>
+								<dd>
+									<a href="{:url('pingj?ping=0')}">我的评价</a>
+
+								</dd>
+								
+							</dl>
+
+							<a ison="on" class="switch-side-menu icon-up-side"><i></i></a>
+						</article>
+					</div>
+				</div>
+				
+				<div class="cont-main" id="main" >
+				
+				
+					<div class="main-wrap mt15" style="border: 0px;">
+						<!--<h3>
+	                        <strong>我的会员等级</strong>
+	                    </h3>-->
+						<div class="server-wrapper">
+							<div class="server-tab" style="margin-top: 26px;">
+								<div style=" float: left;vertical-align: bottom;text-align: center;">
+								<div style="width: 680px;padding: 10px;float: left;background-color: #fff;height: 250px;">
+								<div style="float: left;width:200px ;height: 152px;border: 1px #ccc solid;box-shadow: 1px 1px 1px #F5F5F5;padding: 5px;">
+									<div style="width: 100%;height: 100%;border: 1px #F2873B dashed;">
+										<span style="font-size: 16px;color: #686868;font-weight: bold;display: block;    display: block; width: 100px; margin-left: 50px;    margin-top:20px;">我的店铺名称</span>
+							<input  id="val" type="text" placeholder="暂无" style="font-size: 20px;color: #F88600;display: block;    display: block; width: 100px; margin-left: 50px;margin-top: 20;">
+								 <input id="gai" type="button" value="修改" style="background-color: #f56a48;border-radius: 5px;color: #fff; font-size:14px;border: 0px;width: 107px;height: 26px;margin-top: 20px;" />
+									</div>
+								</div>
+<script>
+//加载的时候抓取店铺名
+	$(function(){
+		$.ajax({
+			url:'/index/index/dian',
+			method:'post',
+			dataType:'json',
+			data:{uid:{$uid}},
+			success:function(data){
+				$('#val').attr('placeholder',data.dian);
+			}
+		
+		});
+	
+	});
+	
+
+	//
+	$('#gai').click(function(){
+		
+		var val = $('#val'). val();
+		$.ajax({
+			url:'/index/index/xiugaidp',
+			method:'post',
+			data:{val:val},
+			success:function(data){
+				$('#val').val('');
+				$('#val').attr('placeholder',data);
+			}
+		});
+		
+	});
+	
+
+</script>
+								<div style="float: left;width:200px ;height: 152px;;margin-left: 20px;border: 1px #ccc solid;box-shadow: 1px 1px 1px #F5F5F5;padding: 5px;">
+									<div style="width: 100%;height: 100%;border: 1px #F2873B dashed;">
+										<span style="font-size: 18px;color: #686868;font-weight: bold;display: block;    display: block; width: 100px; margin-left: 50px; margin-bottom: 20px;   margin-top: 20px;">上架商品数</span>
+										{if $shopnum == 0}
+									    <span style="width: 87px;height: 20px;background-color: #fee3dc;padding: 5px;border: 1px #C62B26 dashed;border-radius: 5px;">暂无</span>
+									    {else /}
+									     <span style="width: 87px;height: 20px;background-color: #fee3dc;padding: 5px;border: 1px #C62B26 dashed;border-radius: 5px;">{$shopnum}</span>
+									    {/if}
+										<img src="/img/我的买豆/矢量智能对象.png" style="position: absolute; margin-top: 30px;  margin-left: -80px;;" />	
+									</div>
+								</div>
+								
+								<div style="float: left;width:200px ;height: 152px;margin-left: 20px;border: 1px #ccc solid;box-shadow: 1px 1px 1px #F5F5F5;padding: 5px;">
+									<div style="width: 100%;height: 100%;border: 1px #F2873B dashed;">
+										<span style="font-size: 18px;color: #686868;font-weight: bold;display: block;    display: block; width: 100px; margin-left: 50px;    margin-top: 20px; margin-bottom: 20px;">最新商品</span>
+										{if empty($zuixin)}
+										<span style="width: 87px;height: 20px;background-color: #fee3dc;padding: 5px;border: 1px #C62B26 dashed;border-radius: 5px;">暂无</span>
+										{else /}
+										<span style="width: 87px;height: 20px;background-color: #fee3dc;padding: 5px;border: 1px #C62B26 dashed;border-radius: 5px;">{$zuixin[0]['miaoshu']}</span>
+										{/if}
+									    <img src="/img/我的买豆/猪的图标.png" style="position: absolute; margin-top: 13px;  margin-left: -80px;;" />									</div>
+								</div>
+								
+								<div style="border-top:1px #ccc solid;width: 650px;position: absolute;margin-top: 200px;margin-left: 20px;float: left;"></div>
+								<div style="position: absolute;margin-top: 230px;font-size: 14px;color: #686868;float: left;">
+									<span style="margin-left: 20px;">待付款</span>
+									<font style="color: #CF2D27;">{$fukuannum}</font>
+									<span style="margin-left: 40px;margin-right: 40px;">|</span>
+									<span >待发货</span>
+									<font style="color: #CF2D27;">{$fahuonum}</font>
+									<span style="margin-left: 40px;margin-right: 40px;">|</span>
+									<span>待收货</span>
+									<font style="color: #CF2D27;">{$shouhuonum}</font>
+									<span style="margin-left: 40px;margin-right: 40px;">|</span>
+									<span>待评价</span>
+									<font style="color: #CF2D27;">{$pingjianum}</font>
+									<span style="margin-left: 40px;margin-right: 40px;">|</span>
+									<span>退款</span>
+									<font style="color: #CF2D27;">{$tuikuannum}</font>
+									
+								</div>
+								</div>	
+						
+								</div>
+
+						</div>
+					</div>
+				</div>
+				
+								 <div style="width: 94%;height: 50px;border: 1px #ccc solid;line-height: 50px;background-color: #fdfdfd;margin-top:250px;margin-left:180px">
+								 	<span style="color: #858585;margin-left: 54px;">宝贝</span>
+								 	<span style="color: #858585;margin-left: 260px;">单价(元)</span>
+								 	<span style="color: #858585;margin-left: 29px;">数量</span>
+								 	<span style="color: #858585;margin-left: 116px;">商品操作</span>
+								 	<span style="color: #858585;margin-left: 54px;">实付款(元)</span>
+								 	<span style="color: #858585;margin-left: 45px;">交易状态</span>
+								 	<span style="color: #858585;margin-left: 45px;">交易操作</span>
+								 </div>
+								 <div style="width: 85%;height: 0px;padding: 10px;>
+								 
+								    <div style="float: right;margin-right: 5px;">
+								    	
+								    </div>
+								 
+							{volist name='dingdan' id='data'}
+								 <div style="margin-top: 30px;width: 81%;height: 250px;border: 1px #addff8 solid;margin-left:180px">
+								 <div style="width: 100%;height: 50px;background-color: #eaf9ff;vertical-align: middle;font-size: 12px;">
+								<input type="checkbox" style="line-height: 50px;margin-left: 20px;"/>
+								<span style="line-height: 50px;">{$data.create_time}</span>
+								<span style="line-height: 50px;margin-left: 20px;">订单号：{$data.bianhao}</span>
+								<span style="line-height: 50px;margin-left: 100px;">{$data.maijia}</span>
+								
+								 </div>	
+								 <div style="float: left;width: 65%;height: 93px;">
+								 	<div style="width: 100%;">
+								 	<img src="/upload/{$data.tupian}" style="height: 100px;float: left;margin-left:0px" />
+								 	<dl style="width: 220px;float: left;margin-left: 20px;margin-top: 20px;">{$data.username}</dl>
+								    <del style="display: inline-block;margin-left: -13px;margin-top: 20px;color: #858585;">{$data.jiage}</del>
+								    <dl style="float: left;margin-left: 30px;margin-top: 40px;">{$data.jiage}</dl>
+								    <span style="margin-left: 40px;">{$data.shuliang}</span>
+								     <dl style="float: right;margin-right: 15px;margin-top: 20px;">
+								  
+								    {if $data.zhuangtai != '待付款'}
+
+								    {if empty($data.yuanyin)}
+								  <a data="{$data.did}">未退款/退货</a>
+								    {else /}
+								  
+								  
+								   {if $data.zhuangtai == '已退款'}
+								   <a>已退款</a>
+								   {else /} 
+								   <a data="{$data.did}">已申请退款</a>
+								   <p style="margin-bottom:4px">{$data.yuanyin}</p>
+								   <a href="" tuikuan='{$data.did}'>同意退款</a>
+								   {/if}
+								   <script>
+								   $(function(){
+								   		$("a[tuikuan='{$data.did}']").click(function(){
+								   			$.ajax({
+														url:'/index/user/tuikuan?did={$data.did}',
+														method:'post',
+													
+														dataType:'json',
+														success:
+														function(data){
+															
+														}
+													});
+								   		})
+
+
+
+								   })
+
+
+								   </script>
+
+								    {/if}
+
+								    {/if}
+								  
+								    {if $data.tousu}
+
+								    <a yitou="{$data.did}">已被投诉</a>
+								    {else /}<br />
+								    <a tousu="{$data.did}">未被投诉</a><a style="display:none" yitou="{$data.did}">已投诉</a>
+								    	
+								    {/if}
+								    <br>
+								    {if $data.yunxian}
+								    <a>退运保险</a>
+								    {else /}
+								    <a>已退运险</a>
+								    {/if}
+								    </dl>
+								    </div>   
+								 </div>	
+								 
+								 <div style="float: left;border-left: 1px #addff8 solid;width: 11%;height:200px;text-align: center;">
+								 	
+								 	<span style="font-weight: bold;margin-top: 30px;display: block;">{$data.jiage}</span>
+								 	<dl>(含运费:00)</dl>
+								 	
+								 </div>
+								 <div style="float: left;border-left: 1px #addff8 solid;width: 11%;height:200px;text-align: center ;">
+								 {if $data.zhuangtai == '待发货'}
+								 	<dl style="margin-top: 30px;"><a href="" fahuo='{$data.did}'>发货</a></dl>
+								 <script>
+								   $(function(){
+								   		$("a[fahuo='{$data.did}']").click(function(){
+								   			$.ajax({
+														url:'/index/user/fahuo?did={$data.did}',
+														method:'post',
+													
+														dataType:'json',
+														success:
+														function(data){
+															
+														}
+													});
+								   		})
+
+
+
+								   })
+
+
+								   </script>
+
+
+
+								 {else /}
+								 	<dl style="margin-top: 30px;">{$data.zhuangtai}</dl>
+								 {/if}
+								 	<dl>订单详情</dl>
+								 	<dl>物流信息</dl>
+								 	<textarea wuliu="{$data.did}" rows=6 cols=12>{$data.wuliu}</textarea>
+								 
+								 	<script>
+								 		$(function(){
+								 			$("textarea[wuliu='{$data.did}']").mouseout(function(){
+
+								 				var neirong = $("textarea[wuliu='{$data.did}']").val();
+								 					$.ajax({
+														url:'/index/user/wuliuxinxi?did={$data.did}',
+														method:'post',
+														data:{'wuliu':neirong},
+														dataType:'json',
+														success:
+														function(data){
+															
+														}
+													});
+
+
+								 			})
+
+								 		})
+
+
+
+								 	</script>
+
+								 	<dl jvtiwuliu="{$data.did}" style="display:none;width:100px;height:110px;background:#eee;margin-left:6px"><b>{$data.wuliu}</b></dl>
+								 </div>
+
+								 <script>
+								 	$(function(){
+								 		$("dl[wuliu='{$data.did}']").mousemove(function(){
+								 			$("dl[jvtiwuliu='{$data.did}']").css('display','block');
+								 		})
+								 		$("dl[wuliu='{$data.did}']").mouseout(function(){
+								 			$("dl[jvtiwuliu='{$data.did}']").css('display','none');
+								 		})
+
+
+								 	})
+
+								 </script>
+
+								 <div style="float: left;border-left: 1px #addff8 solid;width: 12%;height:200px;text-align: center ;">
+								 
+								 	{if $data.zhuangtai == '确认收货'}
+								 	<button style="color: fff;background-color: #65b5ff;border: 0px;padding: 4px;margin-top: 5px;">未确认收货</button>
+								 	
+								 	{elseif $data.zhuangtai == '待评价'}
+								 	<button style="color: fff;background-color: #65b5ff;border: 0px;padding: 4px;margin-top: 5px;">待评价</button>
+								 	{elseif $data.zhuangtai == '已评价'}
+								 	评价：{$data.neirong}
+								 
+								 	{/if}
+								 </div>
+								 </div>
+
+							{/volist}
+</div>
+
+
+
+			</div>
+
+				<div id="sj" style="margin-left:180px;width:1000px;height:1000px;background:#ddd;display:none;">
+					<p style="font-size:14px;">商品新增</p>
+					<!--新增商品-->
+					<div style="width:100%;height:50px;border-top:1px solid #ccc;">
+						<form action="{:url('shopCreate')}"  method="post"  enctype="multipart/form-data">
+						
+							分类:<select id="sel" name="sel">
+							{volist name="blist" id="sdata"}
+									<option value="{$sdata.bid}">{$sdata.name}</option>
+							{/volist}
+							</select>
+							细分:<select id="select" name="selected">
+							{volist name="slist" id="sdata"}
+									<option  class="{$sdata.bid}" value="{$sdata.name}" >{$sdata.name}</option>
+							{/volist}
+							</select>
+			<script>
+				var sel = document.getElementById('sel');
+				var select = document.getElementById('select');
+				sel.onchange = sel.onclick = function(){
+					var selected = sel.selectedIndex;
+					var bid = sel.options[selected].value;
+					for(var i=0;i<select.length;i++){
+						select.options[i].style.display = 'none';
+						if(select.options[i].className == bid ){
+							select.options[i].selected = true;
+							select.options[i].style.display = 'block';
+						}
+					}
+				}
+			
+			
+			
+			</script>
+							描述:<input type="text" name="miaoshu" />
+							图片介绍:<input type="file" name="f" />
+							<span style="margin-left:-44px;">类别：<input type="text" name="size" placeholder='输入类别以逗号隔开'/></span>
+							颜色：<input type="text" name="color" placeholder='输入颜色以逗号隔开'/><br />
+							价格:<input type="text" name ="price" />/每件
+							<input type ="submit" value="新添" />
+						</form>
+					</div>
+					<table class="table table-striped" width="1000px" border="1" style="margin-top:20px;">
+							  <thead>
+								<tr>
+								  <th>#</th>
+								  <th>大分类</th>
+								  <th>细分类</th>
+								  <th>商品描述</th>
+								  <th>图片介绍</th>
+								  <th>价格</th>
+								  <th>操作</th>
+								</tr>
+							  </thead>
+							  <tbody>
+								{volist name="list" id="d" key="k"}
+								<tr align="center">
+								  <td>{$k}</td>
+								  <td>{$d.bleixing}</td>
+								  <td>{$d.mleixing}</td>
+								  <td>{$d.miaoshu}</td>
+								  <td>{$d.tupian}</td>
+								  <td>{$d.price}元/件</td>
+								  <td xiajia='{$d.sid}'><a href="">下架</a></td>
+								</tr>
+								<script>
+									$(function(){
+										$("td[xiajia='{$d.sid}']").click(function(){
+										
+											$.ajax({
+														url:'/index/user/xiajia?sid={$d.sid}',
+														method:'post',
+														
+														dataType:'json',
+														success:
+														function(data){
+															
+														}
+													});
+
+
+										})
+
+
+
+									})
+
+								</script>
+								{/volist}
+									
+						
+
+							  </tbody>
+							</table>
+											
+						
+					
+				</div>
+		
+	</div>
+		</div>
+		<div class="clear "></div>
+		<div class="ng-footer ">
+
+			<textarea class="footer-dom " id="footer-dom-02 ">
+			</textarea>
+			<div class="ng-fix-bar "></div>
+		</div>
+		<style type="text/css ">
+		
+			.ng-footer {
+				height: 130px;
+				margin-top: 0;
+			}
+		
+			
+			.ng-s-footer {
+				height: 130px;
+				background: none;
+				text-align: center;
+			}
+			
+			.ng-s-footer p.ng-url-list {
+				height: 25px;
+				line-height: 25px;
+			}
+			
+			.ng-s-footer p.ng-url-list a {
+				color: #666666;
+			}
+			
+			.ng-s-footer p.ng-url-list a:hover {
+				color: #f60;
+			}
+			
+			.ng-s-footer .ng-authentication {
+				float: none;
+				margin: 0 auto;
+				height: 25px;
+				width: 990px;
+				margin-top: 5px;
+			}
+			
+			.ng-s-footer p.ng-copyright {
+				float: none;
+				width: 100%;
+			}
+			
+			.root1200 .ng-s-footer p.ng-copyright {
+				width: 100%;
+			}
+		</style>
+		<script type="text/javascript " src="js/safe/ms_common.min.js "></script>
+		<div style="text-align:center;">
+<p><a href="http://www.mycodes.net/" target="_blank"></a></p>
+</div>
+	</body>
+
+	<script>
+		
+		
+	
+	</script>
+	
+</html>

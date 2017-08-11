@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+
+	<head>
+	
+	
+	</head>
+	<body>
+		
+		<form action="{:url('updateshop')}" method="post" />
+		
+			价格<input type="text" name="jiage" value="{$jiage}" /><br />
+			销量<input type="text" name="xiaoliang" value="{$xiaoliang}" /><br />
+			热销程度<input type="text" name="hot" value="{$hot}" /><br />
+			
+			<input type="hidden" name="sid" value="{$sid}" /><br />
+			
+			
+			<input type="submit" value="修改" /><br />
+		</form>
+	</body>
+</html>

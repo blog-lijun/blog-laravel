@@ -1,0 +1,111 @@
+/*=======重置样式===============*/
+html,body{margin:0;padding:0;-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;}	
+ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;}
+ul,ol,li,dl,dt,dd{list-style: none;}
+img{border:0;display:block;}
+a{text-decoration: none;color:#999;}
+h1,h2,h3,h4,h5,h6{font-weight: normal;}
+body{font:12px "宋体";}
+em,i{font-style:normal;}
+input{outline:none;text-indent: 12px;}
+/*=======头部样式===============*/
+#top{width:100%;height:62px;padding-top:28px;border-bottom: solid 3px #ed1c22;overflow: hidden;}
+#top .topcontain{width:960px;height:62px;margin:0 auto;/*border:solid 1px #428BCA;*/}
+#top .topcontain h1{float: left;margin-right:25px;}
+#top .topcontain .top-center{float: left;width:420px;height:62px;}
+#top .topcontain .top-center p{height:30px;}
+#top .topcontain .top-center p.p1{line-height:30px;font:800 20px/30px "微软雅黑";}
+#top .topcontain .top-center p.p2{line-height:30px;}
+#top .topcontain .top-center p.p2 span{padding-right:10px;}
+#top .topcontain .top-right{float:right;width:420px;height:62px;}
+#top .topcontain .top-right img{margin-left:90px;}
+#top .topcontain .top-right ul li{float:left;padding-left:38px;margin-top:10px;}
+#top .topcontain .top-right ul li.red{color:red;}
+/*=======结算主体===============*/
+#subject{width:100%;/*height:1120px;*/background:#f0f0f0;padding:25px 0;}
+/*=======版心===============*/
+#subject #container{width:930px;/*height:100%;*/background:#fff;margin:0 auto;padding:0 15px;}
+#container .mk1{width:930px;height:280px;padding-top:15px;}
+#container .mk1 h2{width:910px;height:35px;line-height:36px;padding-left:20px;background:#f0f0f0;font:800 14px/36px "微软雅黑";}
+#container .mk1 .adress{width:830px;height:65px;padding:30px 0 0 100px;}
+#container .mk1 .adress p{width:96px;height:28px;line-height:28px;border:solid 1px #ccc;}
+#container .mk1 .adress p b{padding:0 10px;color:red;}
+#container .mk1 .delivery{height:150px;width:930px;}
+#container .mk1 .delivery .subbt{background:#fff;border-bottom: solid 1px #ccc;}
+#container .mk1 .delivery p{height:40px;line-height:40px;padding-left:30px;font-size:14px;color:#999;}
+#container .mk1 .delivery p span{color:#000;padding-right:15px;}
+/*==============模块二===================*/
+#container .mk2{/*height:315px;*/width:930px;}
+#container .mk2 h2{width:910px;height:35px;line-height:36px;padding-left:20px;background:#f0f0f0;font:800 14px/36px "微软雅黑";}
+
+
+#container .product-info{width:930px;background:#fff;}
+#container .product-info .label{width:930px;height:30px;line-height:30px;border-bottom: solid 2px #000;}
+#container .product-info .label span{display:block;float:left;font:800 14px/30px "微软雅黑";/*text-align: center;*/}
+#container .product-info .label span.span1{width:350px;padding-left: 200px;}
+#container .product-info .label .span2,.span3,.span4{width:110px;}
+#container .product-info .label span.span5{width:50px;}
+#container .product-info .label .span2{padding-left: 10px;width:100px;}
+#container .product-info .label .span3{padding-left: 20px;width:90px;}
+#container .product-info .label .span4{padding-left: 10px;width:100px;}
+
+#container .product-info .items{width:930px;}
+#container .product-info .items li{width:930px;height:80px;border-bottom:dotted 1px #ccc;padding:10px 0;}
+#container .product-info .items li .imgcon{width:100px;height:80px;float:left;}
+#container .product-info .items li .imgcon img{width:100px;height:80px;}
+#container .product-info .items li .desc{width:450px;height:70px;float: left;padding-top:10px;}
+#container .product-info .items li .desc p{height:20px;line-height:20px;font: 12px/20px "微软雅黑";}
+#container .product-info .items li>span{display:block;width:110px;height:70px;float: left;padding-top:10px;line-height:20px;font:800 12px/20px "微软雅黑";color: red;}
+#container .product-info .items li>span b{margin-left:5px;}
+#container .product-info .items li>p{width:110px;height:80px;float:left;}
+#container .product-info .items li>p em{display:inline-block;width:15px;height:15px;border:solid 1px #ccc;text-align: center;margin-right:10px;}
+#container .product-info .items li>p input{display:inline-block;height:20px;width:30px;line-height:20px;border:solid 1px #ccc;text-align: center;margin-top:10px;}
+#container .product-info .items li>p i{display:inline-block;width:15px;height:15px;border:solid 1px #ccc;text-align: center;margin-left:10px;}
+#container .product-info .items li>b{display:block;width:110px;height:65px;float:left;padding-top:15px;color:red;}
+#container .product-info .items li>b i{margin-left:5px;}
+#container .product-info .items li .delete{width:50px;height:65px;float:left;padding-top: 15px;}
+
+#container .product-info .price{width:930px;border-bottom: solid 2px #ccc;}
+#container .product-info .price p{height:24px;line-height:24px;text-align: right;}
+#container .product-info .price p.p1{margin-right:30px;}
+#container .product-info .price p.p1 span{margin:0 5px;}
+#container .product-info .price p.p2 span{margin:0 5px;}
+#container .product-info .price p.p3 span{margin:0 5px;}
+#container .product-info .price p.p4{padding:20px 0 30px 0;}
+#container .product-info .price p.p4 span{font:800 20px/24px "微软雅黑";color:red;}
+
+/*===============模块三==================*/
+#container .mk3{/*height:255px;*/width:930px;overflow: hidden;padding-bottom:20px;border-bottom:solid 2px #ccc;}
+#container .mk3 h2{width:910px;height:35px;line-height:36px;padding-left:20px;background:#f0f0f0;font:800 14px/36px "微软雅黑";}
+#container .mk3 h3{height:44px;line-height:44px;padding:10px 0 0 20px;font:800 14px/44px "微软雅黑";}
+#container .mk3 textarea{outline:none;text-indent:24px;margin-left:20px;}
+#container .mk3 p{padding-left:20px;height:24px;line-height:24px;padding-top:10px;}
+
+/*===============模块四==================*/
+#container .mk4{width:930px;padding-top:15px;overflow: hidden;}
+#container .mk4 .confirm{float:right;width:930px;98px;margin-bottom: 15px;}
+#container .mk4 .confirm ul{width:410px;height:86px;border: solid 1px #ccc;float:right;padding-top:10px;padding-left:15px;}
+#container .mk4 .confirm ul li{line-height:24px;}
+#container .mk4 .confirm ul li.li1 b{font:800 18px/24px "微软雅黑";color:red;}
+#container .mk4 .confirm ul li.li1 span{padding:0 5px;}
+#container .mk4>p button{float: right;width:210px;height:40px;background: #ed0505;font:800 14px/40px "微软雅黑";color:#fff;}
+/*=======模态框样式===============*/
+html,body{width:100%;height:100%;}
+#mtk{width:100%;height:100%;position:absolute;left:0;top:0;background:rgba(0,0,0,0.5);z-index: 5;display:none;}
+.mtkcons{width:530px;height:350px;border:solid 1px #ccc;background: #fff;position: fixed;left:0;right:0;top:0;bottom: 0;margin:auto;z-index: 10;display:none;}
+.mtkcons h2{width:520px;height:40px;line-height:40px;background:#e33d53;padding-left:10px;color:#fff;}
+.mtkcons p{height:26px;line-height:26px;margin-bottom:12px;}
+.mtkcons p em{display:inline-block;width:100px;text-align: right;padding-right:10px;font-size:14px;}
+.mtkcons p span{margin-right:5px;color:red;}
+.mtkcons p input[type="text"]{text-indent: 12px;width:180px;height:22px;}
+.mtkcons p input.street{width:344px;}
+.mtkcons p.btn{width:410px;padding-left:120px;}
+.mtkcons p button{width:80px;height:30px;color:#fff;font-weight:800;border:0;outline:none;}
+.mtkcons p button.commit{background:#e33d53;}
+.mtkcons p button.cancel{background:#999;}
+#mtk.active{display:block;}
+.mtkcons.show{display: block;}
+

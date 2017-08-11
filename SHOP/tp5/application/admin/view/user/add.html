@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+
+	<head>
+	
+	
+	</head>
+	<body>
+		
+		<form action="{:url('addBk')}" method="post" />
+		
+			主版块：<select name="select">
+			{volist name="name" id="data"}
+				<option value="{$data.bid}">{$data.name}</option>
+			{/volist}
+
+			</select>
+			辅板块:<input type="text" name="name" /><br />
+			验证码：<input type="text" name="captcha" /><br />
+			<img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?' + Math.random()" /><br />
+			
+			<input type="submit" value="添加" /><br />
+		</form>
+	</body>
+</html>

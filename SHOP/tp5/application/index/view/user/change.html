@@ -1,0 +1,23 @@
+<!doctype html>
+
+<html>
+
+	<head>
+	
+	
+	</head>
+	<body>
+		
+		<form action="{:url('update')}" method="post" />
+		
+			用户名：<input type="text" name="username" value="{$username}" /><br />
+			密码：<input type="password" name="password" /><br />
+			重复密码：<input type="repassword" name="repassword" /><br />
+			<input type="hidden" name="uid" value="{$uid}" /><br />
+			验证码：<input type="text" name="captcha" /><br />
+			<img src="{:captcha_src()}" alt="captcha" onclick="this.src='{:captcha_src()}?' + Math.random()" /><br />
+			
+			<input type="submit" value="修改" /><br />
+		</form>
+	</body>
+</html>

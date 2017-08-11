@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap -->
+    <link href="/dist/css/bootstrap.min.css" rel="stylesheet">
+	<style>
+		.left_bg{height:800px;background:#eee;}
+		.one{display:none}
+		.two{display:block}
+	</style>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+		<nav class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/index/index/index">返回首页</a></li>
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+  
+		<div class="container">
+			<div class ="row">
+				<div class="col-md-3 left_bg">
+				
+					<ul class="list-group" style="margin-top:40px;">
+					  <li class="list-group-item list-group-item-success q1"><a href="javascript:;">用户管理</a></li>
+					  <li class="list-group-item list-group-item-success q2"><a href="javascript:;">订单管理</a></li>
+					  <li class="list-group-item list-group-item-info q3"><a href="javascript:;">商品管理</a></li>
+					  <li class="list-group-item list-group-item-info q4"><a href="javascript:;">板块管理</a></li>
+					  <li class="list-group-item list-group-item-warning q5"><a href="javascript:;">友情链接</a></li>
+					  <li class="list-group-item list-group-item-warning q6"><a href="javascript:;">学习管理</a></li>
+					  <li class="list-group-item list-group-item-danger q7"><a href="javascript:;">心情管理</a></li>
+					  <li class="list-group-item list-group-item-danger q8"><a href="javascript:;">流程管理</a></li>
+					</ul>
+				
+				</div>
+				
+				<div class="col-md-9 c1">
+							<a href="{:url('list')}" type="button" class="btn btn-primary">新增</a>
+							<table class="table table-striped">
+				  <thead>
+					<tr>
+					  <th>编号</th>
+					  <th>用户名</th>
+					  <th>密码</th>
+					  <th>IP</th>
+					  <th>管理</th>
+					</tr>
+				  </thead> 
+				  <tbody>
+				  {volist name="list" id="data"}
+				 
+					<tr>
+					  <td>{$data.uid}</td>
+					  <td>{$data.username}</td>
+					  <td>{$data.password}</td>
+					  <td>{$data.create_ip}</td>
+					  <td>
+							<a href="{:url('change')}?uid={$data.uid}" >修改</a>
+							<a href="{:url('del')}?uid={$data.uid}" >删除</a>
+					  </td>
+					</tr>
+					{/volist}
+				  </tbody>
+				</table>
+					
+				</div>
+				
+				<div class="col-md-9 c2 one">
+							
+							<table class="table table-striped">
+				  <thead>
+				  
+					<tr>
+					  <th>订单编号</th>
+					  <th>买家</th>
+					  <th>卖家</th>
+					  <th>商品id</th>
+					  <th>商品名称</th>
+					  <th>状态</th>
+					  <th>管理</th>
+					</tr>
+				  </thead> 
+				  <tbody>
+				 
+				  {volist name="dingdan" id="data"}
+					<tr>
+					  <td>{$data.bianhao}</td>
+					  <td>{$data.buyjia}</td>
+					  <td>{$data.maijia}</td>
+					  <td>{$data.shopid}</td>
+					  <td>{$data.username}</td>
+					  <td>{$data.zhuangtai}</td>
+					   <td>
+							<a href="{:url('dingdan')}?bianhao={$data.bianhao}&zhuangtai={$data.zhuangtai}" >修改</a>
+							<a href="{:url('deldingdan')}?bianhao={$data.bianhao}" >删除</a>
+					  </td>
+					</tr>
+					{/volist}
+				  </tbody>
+				</table>
+					
+				</div>
+				
+				
+				<div class="col-md-9 c3 one">
+							
+							<table class="table table-striped">
+				  <thead>
+				  
+					<tr>
+					  <th>商品名</th>
+					  <th>价格</th>
+					  <th>销量（月）</th>
+					  <th>卖家</th>
+					  <th>热销程度</th>
+					  <th>管理</th>
+					</tr>
+				  </thead> 
+				  <tbody>
+				  
+				  {volist name="shop" id="data"}
+					<tr>
+					  <td>{$data.miaoshu}</td>
+					  <td>{$data.jiage}</td>
+					  <td>{$data.xiaoliang}</td>
+					  <td>{$data.maijia}</td>
+					  <td>{$data.hot}</td>
+					  <td>
+							<a href="{:url('shop')}?sid={$data.sid}&jiage={$data.jiage}&xiaoliang={$data.xiaoliang}&hot={$data.hot}" >修改</a>
+							<a href="{:url('delshop')}?sid={$data.sid}" >删除</a>
+					  </td>
+					</tr>
+					{/volist}
+				  </tbody>
+				</table>
+					
+				</div>
+				
+				<div class="col-md-9 c4 one">
+							<a href="{:url('add')}" type="button" class="btn btn-primary">新增</a>
+							<table class="table table-striped">
+				  <thead>
+					<tr>
+					  <th>主体类型</th>
+					  <th>小类型</th>
+					  <th>管理</th>
+					</tr>
+				  </thead> 
+				  <tbody>
+				  
+				   {volist name="leixing" id="data"}
+					<tr> 
+					{volist name="mleixing" id="da"}
+					  {if $da.bid == $data.bid}
+					  <td>{$data.name}</td>
+					 
+					  <td>{$da.name}</td>
+					
+					  <td>
+							<a href="{:url('leixing')}?dname={$data.name}&mname={$da.name}&bid={$data.bid}&sid={$da.sid}">修改</a>
+							<a href="{:url('delleixing')}?sid={$da.sid}" >删除</a>
+					  </td>
+					</tr>
+					{/if}
+					 {/volist}
+					{/volist}
+				  </tbody>
+				</table>
+					
+				</div>
+				
+				
+			</div>
+			
+			
+		</div>
+		
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+	<script >
+		$(function(){
+			$('.q1').click(function(){
+				$('.c1').addClass('two').removeClass('one');
+				$('.c2').addClass('one').removeClass('two');
+				$('.c3').addClass('one').removeClass('two');
+				$('.c4').addClass('one').removeClass('two');
+				
+			}
+		)})
+		$(function(){
+			$('.q2').click(function(){
+				$('.c1').addClass('one').removeClass('two');
+				$('.c2').addClass('two').removeClass('one');
+				$('.c3').addClass('one').removeClass('two');
+				$('.c4').addClass('one').removeClass('two');
+				
+			}
+		)})
+		
+		$(function(){
+			$('.q3').click(function(){
+				$('.c1').addClass('one').removeClass('two');
+				$('.c2').addClass('one').removeClass('two');
+				$('.c3').addClass('two').removeClass('one');
+				$('.c4').addClass('one').removeClass('two');
+				
+			}
+		)})
+		
+			$(function(){
+			$('.q4').click(function(){
+				$('.c1').addClass('one').removeClass('two');
+				$('.c2').addClass('one').removeClass('two');
+				$('.c3').addClass('one').removeClass('two');
+				$('.c4').addClass('two').removeClass('one');
+				
+			}
+		)})
+	</script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>
+		
+	
